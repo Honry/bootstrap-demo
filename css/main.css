@@ -143,6 +143,9 @@ margin-left: 2px;
 .col-md-3 .color-swatches{
 	border-radius: 34px;
 }
+.col-md-4 .color-swatches{
+	border-radius: 4px;
+}
 .color-swatches.gray-darker {
     background-color: #222
 }
