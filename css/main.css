@@ -108,24 +108,19 @@ body {
 }
 .col-md-4 .media.pass,.col-md-3 .media.pass,
 .col-md-4 .media.fail,.col-md-3 .media.fail,
-.col-md-4 .media.block,.col-md-3 .media.block,
 .col-md-4 .media.unresponse,.col-md-3 .media.unresponse{
 	/*color:#fff;*/
 }
 .col-md-4 .media.pass .media-body a,.col-md-3 .media.pass .media-body a,
 .col-md-4 .media.fail .media-body a,.col-md-3 .media.fail .media-body a,
-.col-md-4 .media.block .media-body a,.col-md-3 .media.block .media-body a,
 .col-md-4 .media.unresponse .media-body a,.col-md-3 .media.unresponse .media-body a{
 	/*color:#fff;*/
 }
 .col-md-4 .media.pass,.col-md-3 .media.pass{
-	background-color: #dff0d8;
+	background-color: rgba(92, 184, 92, 0.4);
 }
 .col-md-4 .media.fail,.col-md-3 .media.fail{
-	background-color: #fcf8e3;
-}
-.col-md-4 .media.block,.col-md-3 .media.block{
-	background-color: #f0ad4e;
+	background-color: rgba(217, 83, 99, 0.5);
 }
 .col-md-4 .media.unresponse,.col-md-3 .media.unresponse{
 	background-color: #999;
@@ -133,15 +128,16 @@ body {
 .color-swatches .glyphicon {
 font-size: 20px;
 color:#fff;
-margin-left: 2px;
+margin-left: 3px;
+margin-top: 1px;
 }
 .color-swatches{
-	width:34px;
-	height: 34px;
+	width:36px;
+	height: 36px;
 	padding:5px;
 }
 .col-md-3 .color-swatches{
-	border-radius: 34px;
+	border-radius: 36px;
 }
 .col-md-4 .color-swatches{
 	border-radius: 4px;

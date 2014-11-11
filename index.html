@@ -1,14 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--
+Copyright (c) 2014 Intel Corporation.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+* Redistributions of works must retain the original copyright notice, this list
+  of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the original copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+* Neither the name of Intel Corporation nor the names of its contributors
+  may be used to endorse or promote products derived from this work without
+  specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY INTEL CORPORATION "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL INTEL CORPORATION BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
+OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Authors:
+        Lin, Wanming <wanmingx.lin@intel.com>
+
+-->
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/main.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <title>DemoExpress</title>
   </head>
   <body>
     <!-- Heading -->
@@ -19,27 +48,29 @@
     </div>
     <!-- Begin page content -->
     <div class="container-fluid">
-    <div class="row">
-    <div class="col-md-4">
-  	<div class="media">
-      <a class="pull-left" href="first-1.html">
-      	<div class="color-swatches brand-primary"><span class="glyphicon glyphicon-asterisk"></span></div>
-      </a>
-      <div class="media-body">
-        <a href="first-1.html"><h4 class="media-heading">Runtime &amp; Packaging</h4></a>
-        Runtime &amp; Packaging
-      </div>
-    </div>
-    
-    </div>
+      <div class="row">
+        <!-- Begin set content -->
+        <div class="col-md-4">
+          <div class="media">
+            <a class="pull-left" href="tests_list.html">
+              <div class="color-swatches brand-primary"><span class="glyphicon glyphicon-asterisk"></span></div>
+            </a>
+            <div class="media-body">
+              <a href="tests_list.html"><h4 class="media-heading">Runtime &amp; Packaging</h4></a>
+              Runtime &amp; Packaging
+            </div>
+          </div>
+        </div>
+
+  <!-- Duplicated code -->
   <div class="col-md-4">
 
   <div class="media">
-      <a class="pull-left" href="first-2.html">
+      <a class="pull-left" href="tests_list.html">
         <div class="color-swatches brand-success"><span class="glyphicon glyphicon-facetime-video"></span></div>
       </a>
       <div class="media-body">
-        <a href="first-2.html"><h4 class="media-heading">Multimedia &amp; Graphics</h4></a>
+        <a href="tests_list.html"><h4 class="media-heading">Multimedia &amp; Graphics</h4></a>
         Multimedia &amp; Graphics
       </div>
     </div>
@@ -48,11 +79,11 @@
   <div class="col-md-4">
   	
   	<div class="media">
-      <a class="pull-left" href="first-3.html">
+      <a class="pull-left" href="tests_list.html">
         <div class="color-swatches brand-warning"><span class="glyphicon glyphicon-link"></span></div>
       </a>
       <div class="media-body">
-        <a href="first-3.html"><h4 class="media-heading">Networking &amp; Storage</h4></a>
+        <a href="tests_list.html"><h4 class="media-heading">Networking &amp; Storage</h4></a>
        Networking &amp; Storage
       </div>
     </div>
@@ -61,11 +92,11 @@
   <div class="col-md-4">
   	
   	<div class="media">
-      <a class="pull-left" href="first-4.html">
+      <a class="pull-left" href="tests_list.html">
         <div class="color-swatches brand-danger"><span class="glyphicon glyphicon-th-large"></span></div>
       </a>
       <div class="media-body">
-        <a href="first-4.html"><h4 class="media-heading">Performance &amp; Optimization</h4></a>
+        <a href="tests_list.html"><h4 class="media-heading">Performance &amp; Optimization</h4></a>
         Performance &amp; Optimization
       </div>
     </div>
@@ -74,11 +105,11 @@
   <div class="col-md-4">
   	
   	<div class="media">
-      <a class="pull-left" href="first-5.html">
+      <a class="pull-left" href="tests_list.html">
         <div class="color-swatches brand-info"><span class="glyphicon glyphicon-hdd"></span></div>
       </a>
       <div class="media-body">
-        <a href="first-5.html"><h4 class="media-heading">Device &amp; Hardware</h4></a>
+        <a href="tests_list.html"><h4 class="media-heading">Device &amp; Hardware</h4></a>
         Device &amp; Hardware
       </div>
     </div>
@@ -87,11 +118,11 @@
   <div class="col-md-4">
   	
   	<div class="media">
-      <a class="pull-left" href="first-6.html">
+      <a class="pull-left" href="tests_list.html">
         <div class="color-swatches bs-purple"><span class="glyphicon glyphicon-heart"></span></div>
       </a>
       <div class="media-body">
-        <a href="first-6.html"><h4 class="media-heading">Social</h4></a>
+        <a href="tests_list.html"><h4 class="media-heading">Social</h4></a>
         Social
       </div>
     </div>
@@ -100,11 +131,11 @@
   <div class="col-md-4">
   	
   	<div class="media">
-      <a class="pull-left" href="first-7.html">
+      <a class="pull-left" href="tests_list.html">
         <div class="color-swatches bs-purple-light"><span class="glyphicon glyphicon-magnet"></span></div>
       </a>
       <div class="media-body">
-        <a href="first-7.html"><h4 class="media-heading">UI</h4></a>
+        <a href="tests_list.html"><h4 class="media-heading">UI</h4></a>
         UI
       </div>
     </div>
@@ -113,11 +144,11 @@
   <div class="col-md-4">
   	
   	<div class="media">
-      <a class="pull-left" href="first-8.html">
+      <a class="pull-left" href="tests_list.html">
        <div class="color-swatches brand-warning3"><span class="glyphicon glyphicon-warning-sign"></span></div>
       </a>
       <div class="media-body">
-        <a href="first-8.html"><h4 class="media-heading">Security</h4></a>
+        <a href="tests_list.html"><h4 class="media-heading">Security</h4></a>
         Security
       </div>
     </div>
@@ -126,11 +157,11 @@
   <div class="col-md-4">
   	
   	<div class="media">
-      <a class="pull-left" href="first-9.html">
+      <a class="pull-left" href="tests_list.html">
         <div class="color-swatches brand-success3"><span class="glyphicon glyphicon-adjust"></span></div>
       </a>
       <div class="media-body">
-        <a href="first-9.html"><h4 class="media-heading">Experimental API</h4></a>
+        <a href="tests_list.html"><h4 class="media-heading">Experimental API</h4></a>
         Experimental API
       </div>
     </div>
@@ -139,11 +170,11 @@
   <div class="col-md-4">
   	
   	<div class="media">
-      <a class="pull-left" href="first-10.html">
+      <a class="pull-left" href="tests_list.html">
         <div class="color-swatches brand-primary3"><span class="glyphicon glyphicon-send"></span></div>
       </a>
       <div class="media-body">
-        <a href="first-10.html"><h4 class="media-heading">Tizen Extension APIs</h4></a>
+        <a href="tests_list.html"><h4 class="media-heading">Tizen Extension APIs</h4></a>
         Tizen Extension APIs
       </div>
     </div>
@@ -152,11 +183,11 @@
   <div class="col-md-4">
   	
   	<div class="media">
-      <a class="pull-left" href="first-11.html">
+      <a class="pull-left" href="tests_list.html">
         <div class="color-swatches brand-danger3"><span class="glyphicon glyphicon-gift"></span></div>
       </a>
       <div class="media-body">
-        <a href="first-11.html"><h4 class="media-heading">Others APIs</h4></a>
+        <a href="tests_list.html"><h4 class="media-heading">Others APIs</h4></a>
         Others APIs
       </div>
     </div>
@@ -165,11 +196,11 @@
   <div class="col-md-4">
   	
   	<div class="media">
-      <a class="pull-left" href="first-12.html">
+      <a class="pull-left" href="tests_list.html">
         <div class="color-swatches brand-info3"><span class="glyphicon glyphicon-tasks"></span></div>
       </a>
       <div class="media-body">
-        <a href="first-12.html"><h4 class="media-heading">Third Party Framework</h4></a>
+        <a href="tests_list.html"><h4 class="media-heading">Third Party Framework</h4></a>
         Third Party Framework
       </div>
     </div>
@@ -178,11 +209,11 @@
   <div class="col-md-4">
   	
   	<div class="media">
-      <a class="pull-left" href="first-13.html">
+      <a class="pull-left" href="tests_list.html">
         <div class="color-swatches bs-purple3"><span class="glyphicon glyphicon-fire"></span></div>
       </a>
       <div class="media-body">
-        <a href="first-13.html"><h4 class="media-heading">Scheme</h4></a>
+        <a href="tests_list.html"><h4 class="media-heading">Scheme</h4></a>
         Scheme
       </div>
     </div>
@@ -191,23 +222,26 @@
   <div class="col-md-4">
   	
   	<div class="media">
-      <a class="pull-left" href="first-14.html">
+      <a class="pull-left" href="tests_list.html">
         <div class="color-swatches bs-purple-light3"><span class="glyphicon glyphicon-folder-close"></span></div>
       </a>
       <div class="media-body">
-        <a href="first-14.html"><h4 class="media-heading">Manifest</h4></a>
+        <a href="tests_list.html"><h4 class="media-heading">Manifest</h4></a>
        Manifest
       </div>
     </div>
   	
   </div>
-	</div>
+  <!-- Duplicated code end -->
+      </div>
     </div>
+
+    <!-- Footer -->
     <div class="footer">
       <div class="container text-center">
        	<div class="btn-group">
-	    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-info-sign"></span>Help</button>
-	    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-log-out"></span>Exit</button>
+	    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Help</button>
+	    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Exit</button>
 	</div>
       </div>
     </div>

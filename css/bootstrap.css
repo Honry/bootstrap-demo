@@ -4831,6 +4831,7 @@ a.thumbnail.active {
 }
 .media-heading {
   margin: 0px;
+  margin-top: 2px;
 }
 .media > .pull-left {
   margin-right: 10px;
