@@ -26,51 +26,50 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Authors:
-        Liu,Yun <yunx.liu@intel.com>
+        Wang, Hongjuan <hongjuanx.wang@intel.com>
 
 -->
 
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width" />
-    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../../css/main.css">
-    <script src="../../js/jquery-1.11.1.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
-    <script src="../../js/tests.js"></script>
-    <script src="js/main.js"></script>
-    <style>
-        #datawindow {
-           width: 98%;
-           height: 250px;
-           overflow: auto;
-           border: 1px solid;
-           margin: 0px auto;
-        }
-    </style>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width" />
+  <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../../css/main.css">
+  <script src="../../js/jquery-1.11.1.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/tests.js"></script>
+  <script src="js/tests.js"></script>
+  <style>
+    #testDiv {
+      border: 1px solid #000;
+      height: 300px;
+      padding: 30px 0px;
+      width: 95%;
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
     <div id="header">
       <h3 id="main_page_title"></h3>
     </div>
     <div id="content">
-      <h4>This sample demonstrates peer to peer communicaton by RTCPeerConnection interface.</h4>
-      <div id="datawindow">
+      <h4>This sample demostrates the functionality of mediaserver with MediaServerEvent and mediaServer interface.</h4>
+      <p>Set up a dlna mediaserver, details at https://github.com/01org/cloud-dleyna/wiki.<p/>
+      <div id="testDiv">
+        <div id='serverContainer'></div>
+        <div id='mediaObjectsContainer'></div>
       </div>
-      <div id="contentbutton" class="container" style="padding-top: 5px;">
-        <button id="startbutton" type="button" class="btn btn-default btn-lg btn-block">Start Connect</button>
-        <button id="stopbutton" type="button" class="btn btn-default btn-lg btn-block">Stop Connect</button>
-        <div class="form-group" style="padding-top: 15px;">
-          <input type="text" class="form-control" id="pc1_input">
-          <button style="margin-top: 5px;" id="pc1_send" type="button" class="btn btn-default btn-lg btn-block">Send</button>
-        </div>
+      <div id="contentbutton" style="margin-top: 10px;">
+        <button id="scanbutton" type="button" class="btn btn-default btn-lg btn-block" onclick='scanNetwork()'>Scan media servers</button>
       </div>
+      <div id="mediaserverInfo"></div>
     </div>
     <div class="modal fade" id="myModal"></div>
     <div class="footer">
       <div id="footer"></div>
     </div>
-  </body>
+  </div>
+</body>
 </html>

@@ -168,7 +168,7 @@ function stop() {
 }
 
 $(document).ready(function() {
-  addButton();
+  addPassFailButton();
   DisablePassButton();
   $("#modal-body").html("<ol><li>Click the 'Start Connect' button, to connect PC1 and PC2</li><li>When connection is established, input the message, click the 'Send' button to send message</li><li>Click the 'Stop Connect' button, to close the connection</li></ol>");
   $("#stopbutton").addClass("ui-disabled");
