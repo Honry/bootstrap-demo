@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-Copyright (c) 2013 Intel Corporation.
+Copyright (c) 2014 Intel Corporation.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -26,7 +26,7 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Authors:
-        Liu,Yun <yunx.liu@intel.com>
+        Liu, yun <yunx.liu@intel.com>
 
 -->
 
@@ -41,32 +41,29 @@ Authors:
     <script src="../../js/bootstrap.min.js"></script>
     <script src="../../js/tests.js"></script>
     <script src="js/main.js"></script>
-    <style>
-        #datawindow {
-           width: 98%;
-           height: 250px;
-           overflow: auto;
-           border: 1px solid;
-           margin: 0px auto;
-        }
-    </style>
   </head>
   <body>
     <div id="header">
       <h3 id="main_page_title"></h3>
     </div>
     <div id="content">
-      <h4>This sample demonstrates peer to peer communicaton by RTCPeerConnection interface.</h4>
-      <div id="datawindow">
-      </div>
-      <div id="contentbutton" class="container" style="padding-top: 5px;">
-        <button id="startbutton" type="button" class="btn btn-default btn-lg btn-block">Start Connect</button>
-        <button id="stopbutton" type="button" class="btn btn-default btn-lg btn-block">Stop Connect</button>
-        <div class="form-group" style="padding-top: 15px;">
-          <input type="text" class="form-control" id="pc1_input">
-          <button style="margin-top: 5px;" id="pc1_send" type="button" class="btn btn-default btn-lg btn-block">Send</button>
+      <h4>This sample demonstrates the Performance Timeline with effect displaying the performance metrics data of loading image.</h4>
+      <p>Connect to an available network.</p>
+      <div id="test" style='height: 100%; width: 100%;'>
+        <div id="info">
+          <p id="name"></p>
+          <hr style="width: 100%; height: 1px;">
+          <p id="entryType"></p>
+          <hr style="width: 100%; height: 1px;">
+          <p id="start"></p>
+          <hr style="width: 100%; height: 1px;">
+          <p id="duration"></p>
         </div>
       </div>
+      <div id="img">
+        <img id='background' style='padding-left: 37%;padding-top: 5%'>
+      <div>
+      <div id="loadimg" style="margin-top: 10px;"><button id="pc1_send" type="button" class="btn btn-default btn-lg btn-block">Load image</button></div>
     </div>
     <div class="modal fade" id="myModal"></div>
     <div class="footer">
