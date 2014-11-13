@@ -21,9 +21,10 @@ function getApps() {
 }
 
 function testStorage() {
+  lstorage.clear();
   var tests = getApps();
   var i = 0;
-  var sname, sbg, sicon, tid, tids, tnum, tpass, tfail, setarr, casearr;
+  var sname, sbg, sicon, tid, tnum, tids, tpass, tfail, setarr, casearr;
   /** set loop **/
   $(tests).find("set").each(function() {
     sname = $(this).attr("name");
@@ -32,14 +33,15 @@ function testStorage() {
     i++;
     var j = 0;
     /** test case loop **/
-    $(tests).find("testcase").each(function() {
+    tids = "";
+    $(this).find("testcase").each(function() {
       tid = $(this).attr("id");
       tids += tid + ",";
       tnum = 1;
       if($(this).attr("subcase")) {
         tnum = $(this).attr("subcase");
       }
-      casearr = {id:tid, num:tnum, pass:"N/A", fail:"N/A"};
+      casearr = {num:tnum, pass:"0", fail:"0", result:"", sid:"set" + i}; //result: "", "pass", "fail"
       j++;
       lstorage.setItem(tid, JSON.stringify(casearr)); //store case info
     });
@@ -49,8 +51,23 @@ function testStorage() {
   lstorage.setItem("setnum", i);  //store set total num
 }
 
-function showMessage(type, msg) {
-
+function listSet() {
+  var snum = parseInt(lstorage.getItem("setnum"));
+  for(var i = 0; i < snum; i++) {
+    var sid = "set" + (i + 1);
+    var setarr = JSON.parse(lstorage.getItem(sid));
+    var sname = setarr.name;
+    var sbg = "color-swatches " + setarr.background;
+    var sicon = "glyphicon " + setarr.icon;
+    var surl = "tests_list.html?sid=" + sid;
+    var setline = '<div class=\"col-md-4\">\n<div class=\"media\">\n'
+                  + '<a class=\"pull-left\" href=\"' + surl + '\">\n'
+                  + '<div class=\"' + sbg + '\"><span class=\"' + sicon + '\"></span></div>\n</a>\n'
+                  + '<div class=\"media-body\">\n'
+                  + '<a href=\"' + surl +'\"><h4 class=\"media-heading\">' + sname + '</h4></a>\n' + sname + '\n'
+                  + '</div>\n</div>\n</div>\n';
+    $('#myset').append(setline);
+  }
 }
 
 $(document).ready(function(){
@@ -62,6 +79,7 @@ $(document).ready(function(){
       //ask if need use old lstorage
     }
   }
+  listSet();
 });
 
 
