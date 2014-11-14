@@ -57,8 +57,7 @@ function send() {
 }
 
 $(document).ready(function() {
-  addPassFailButton();
-  $("#modal-body").html("This sample is designed by MessagePortManagerObject, MessagePortManager, LocalMessagePort and RemoteMessagePort interfaces.");
+  showMessage("help", "This sample is designed by MessagePortManagerObject, MessagePortManager, LocalMessagePort and RemoteMessagePort interfaces.");
   $("#pc1_send").click(send);
   $("#test").html("");
 });

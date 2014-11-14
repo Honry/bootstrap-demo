@@ -69,7 +69,9 @@ $(document).ready(function(){
   document.title = tid;
   $("#main_page_title").text(tid);
   $("#header").addClass("navbar navbar-default navbar-fixed-top text-center");
-  $("#footer").html("<button type='button' class='btn btn-default' data-toggle='modal' data-target='#myModal'><span class='glyphicon glyphicon-info-sign'></span>&nbsp;Help</button><button type='button' class='btn btn-default' onclick='javascript: back();'><span class='glyphicon glyphicon-circle-arrow-left'></span>&nbsp;Back</button>");
+  $("#footer").html("<button type='button' class='btn btn-default' data-toggle='modal' data-target='#myModal'><span class='glyphicon glyphicon-info-sign'></span>Help</button><button type='button' class='btn btn-default' onclick='javascript: back();'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</button>");
+  if(step) {
+    addPassFailButton();
+  }
   $("#footer").addClass("container text-center");
-  $("#myModal").html("<div class='modal-dialog' style='position: fixed; bottom: 30px; left: 25%; margin-top: 0px;'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button></div><div id='modal-body' class='modal-body'></div><div class='modal-footer'></div></div></div>");
 });

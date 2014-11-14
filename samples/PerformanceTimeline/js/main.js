@@ -51,8 +51,7 @@ function sendResourceTiming() {
 }
 
 $(document).ready(function() {
-  addPassFailButton();
-  $("#modal-body").html("This sample is designed by Performance and PerformanceEntry interface.");
+  showMessage("help", "This sample is designed by Performance and PerformanceEntry interface.");
   DisablePassButton();
   $("#info").css("display", "none");
   $("#loadimg").click(loadimg);

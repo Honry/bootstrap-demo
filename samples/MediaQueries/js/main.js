@@ -43,9 +43,8 @@ function status() {
 }
 
 $(document).ready(function () {
-    addPassFailButton();
     DisablePassButton();
-    $("#modal-body").html("It is designed by device-aspect-ratio and device-height properties of CSS @media");
+    showMessage("help", "It is designed by device-aspect-ratio and device-height properties of CSS @media");
     $("#apply1").click(function () {
         testFlag.green = true;
         $("style")[0].innerHTML = $("style")[0].innerHTML +
