@@ -20,5 +20,31 @@
       <testcase component="usecase" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="CSP" purpose="CSP" subcase="9">
       </testcase>
     </set>
+    <set name="Tizen Extension APIs" background="brand-primary3" icon="glyphicon-send">
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="ApplicationManager" purpose="ApplicationManager">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="AudioSystem" purpose="AudioSystem">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="Bookmark" purpose="Bookmark">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="Content" purpose="Content">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="Download" purpose="Download">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="TizenFileSystem" purpose="Tizen Filesystem">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="MessagePort" purpose="MessagePort">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="NBS" purpose="NBS">
+        <capability name="nbs"/>
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="SystemInfo" purpose="SystemInfo">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="SystemSettingIncomingCall" purpose="SystemSetting IncomingCall">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="SystemSettingScreen" purpose="SystemSetting Screen">
+      </testcase>
+    </set>
+
   </suite>
 </test_definition>

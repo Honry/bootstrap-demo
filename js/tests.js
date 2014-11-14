@@ -28,60 +28,48 @@ Authors:
         Liu, Yun <yunx.liu@intel.com>
 */
 
-function EnablePassButton(){
-  $('#pass_button').attr('disabled',false);
+var lstorage = window.localStorage;
+var tid = location.search.split('=')[1];
+var casearr = JSON.parse(lstorage.getItem(tid));
+var sid = casearr.sid;
+
+function EnablePassButton() {
+  $('#pass_button').attr('disabled', false);
 }
 
-function DisablePassButton(){
-  $('#pass_button').attr('disabled',true);
-}
-
-function getParms() {
-  var parms = new Array();
-  var str = location.search.substring(1);
-  var items = str.split('&');
-  for ( var i = 0; i < items.length; i++) {
-    var pos = items[i].indexOf('=');
-    if (pos > 0) {
-      var key = items[i].substring(0, pos);
-      var val = items[i].substring(pos + 1);
-      if (!parms[key]) {
-        var rawVal = decodeURI(val);
-        if (rawVal.indexOf(',') < 0)
-          parms[key] = rawVal;
-        else
-          parms[key] = rawVal.split(',');
-      }
-    }
-  }
-  return parms["test_name"];
-}
-
-function addPassFailButton() {
-  $("#footer").html("<button id='pass_button' type='button' class='btn btn-default' onclick='javascript: pass();'><span class='glyphicon glyphicon-ok-sign'></span>Pass</button><button type='button' class='btn btn-default' onclick='javascript: fail();'><span class='glyphicon glyphicon-remove-sign'></span>Fail</button>" + $("#footer").html());
-}
-
-function pass() {
-  var testname = getParms();
-  window.sessionStorage.setItem(testname, 1);
-}
-
-function fail() {
-  var testname = getParms();
-  window.sessionStorage.setItem(testname, 0);
+function DisablePassButton() {
+  $('#pass_button').attr('disabled', true);
 }
 
 function back() {
-  
+  //need to add method to deal with when it is a subcase
+  window.location.href = "../../tests_list.html?sid=" + sid;
+}
+
+function reportResult(res) {
+  var tpass = parseInt(casearr.pass);
+  var tfail = parseInt(casearr.fail);
+  var tresult = casearr.result;
+  var tnum = parseInt(casearr.num);
+  if (tnum > 1) {
+    //deal with subcase
+  } else {
+    tresult = res;
+  }
+  casearr = {num:tnum, pass:tpass, fail:tfail, result:tresult, sid:sid};
+  lstorage.setItem(tid, JSON.stringify(casearr));
+  back();
+}
+
+function addPassFailButton() {
+  $("#footer").html("<button id='pass_button' type='button' class='btn btn-default' onclick='javascript: reportResult('pass');'><span class='glyphicon glyphicon-ok-sign'></span>&nbsp;Pass</button><button type='button' class='btn btn-default' onclick='javascript: reportResult('fail');'><span class='glyphicon glyphicon-remove-sign'></span>&nbsp;Fail</button>" + $("#footer").html());
 }
 
 $(document).ready(function(){
-  var testname = getParms();
-  document.title = testname;
-  $("#main_page_title").text(testname);
-  window.sessionStorage.setItem(testname, -1);
+  document.title = tid;
+  $("#main_page_title").text(tid);
   $("#header").addClass("navbar navbar-default navbar-fixed-top text-center");
-  $("#footer").html("<button type='button' class='btn btn-default' data-toggle='modal' data-target='#myModal'><span class='glyphicon glyphicon-info-sign'></span>Help</button><button type='button' class='btn btn-default' onclick='javascript: back();'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</button>");
+  $("#footer").html("<button type='button' class='btn btn-default' data-toggle='modal' data-target='#myModal'><span class='glyphicon glyphicon-info-sign'></span>&nbsp;Help</button><button type='button' class='btn btn-default' onclick='javascript: back();'><span class='glyphicon glyphicon-circle-arrow-left'></span>&nbsp;Back</button>");
   $("#footer").addClass("container text-center");
   $("#myModal").html("<div class='modal-dialog' style='position: fixed; bottom: 30px; left: 25%; margin-top: 0px;'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button></div><div id='modal-body' class='modal-body'></div><div class='modal-footer'></div></div></div>");
 });
