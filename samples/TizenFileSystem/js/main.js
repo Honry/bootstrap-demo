@@ -103,8 +103,7 @@ function onerror(error) {
 }
 
 $(document).ready(function() {
-  addPassFailButton();
-  $("#modal-body").html("This sample is designed by FileSystemManager interface.");
+  showMessage("help", "This sample is designed by FileSystemManager interface.");
   $("#readfile").addClass("ui-disabled");
   $("#createfile").click(createfile);
   $("#readfile").click(readfile);

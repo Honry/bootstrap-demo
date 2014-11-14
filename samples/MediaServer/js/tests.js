@@ -134,6 +134,5 @@ function onServerFound(event) {
 }
 
 $(document).ready(function() {
-  addPassFailButton();
-  $("#modal-body").html("<p>1. Click the button 'Scan media servers', if there are no 'Browse root container of iMediaExport' and mediaserver information display.</p><p>2. Click the button 'Browse root container of iMediaExport', to see the content in 5 items.</p>");
+  showMessage("help", "<p>1. Click the button 'Scan media servers', if there are no 'Browse root container of iMediaExport' and mediaserver information display.</p><p>2. Click the button 'Browse root container of iMediaExport', to see the content in 5 items.</p>");
 });

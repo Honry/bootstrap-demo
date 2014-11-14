@@ -68,9 +68,8 @@ function remove(id) {
 }
 
 $(document).ready(function() {
-  addPassFailButton();
   $("#add").click(add);
-  $("#modal-body").html("This sample is designed by BookmarkManagerObject, BookmarkManager and BookmarkItem interfaces.");
+  showMessage("help", "This sample is designed by BookmarkManagerObject, BookmarkManager and BookmarkItem interfaces.");
   tizen.bookmark.remove();
   bookmarkList = [];
   j = 0;
