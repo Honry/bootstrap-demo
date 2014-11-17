@@ -46,6 +46,21 @@ function back() {
   window.location.href = "../../tests_list.html?sid=" + sid;
 }
 
+function showMessage(type, msg) {
+  $("#myModal").html("<div id='modal-dialog' class='modal-dialog' style='position: fixed; width: auto; left: 25%; margin-top: 0px;'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button><h3 class='modal-title'><span id='myModalLabel' class='glyphicon'></span></h3></div><div id='modal-body' class='modal-body'></div><div class='modal-footer'></div></div></div>");
+  $("#modal-body").html(msg);
+  if (type == "help") {
+    $("#modal-dialog").css("bottom", "30px");
+    $("#myModalLabel").addClass("glyphicon-info-sign");
+  } else if (type == "success") {
+    $("#modal-dialog").css("bottom", "30%");
+    $("#myModalLabel").addClass("glyphicon-ok-sign");
+  } else if (type == "error") {
+    $("#modal-dialog").css("bottom", "30%");
+    $("#myModalLabel").addClass("glyphicon-warning-sign");
+  }
+}
+
 function reportResult(res) {
   var tpass = parseInt(casearr.pass);
   var tfail = parseInt(casearr.fail);
@@ -62,7 +77,7 @@ function reportResult(res) {
 }
 
 function addPassFailButton() {
-  $("#footer").html("<button id='pass_button' type='button' class='btn btn-default' onclick='javascript: reportResult('pass');'><span class='glyphicon glyphicon-ok-sign'></span>&nbsp;Pass</button><button type='button' class='btn btn-default' onclick='javascript: reportResult('fail');'><span class='glyphicon glyphicon-remove-sign'></span>&nbsp;Fail</button>" + $("#footer").html());
+  $("#footer").html("<button id='pass_button' type='button' class='btn btn-default' onclick='javascript: reportResult(\"pass\");'><span class='glyphicon glyphicon-ok-sign'></span>&nbsp;Pass</button><button type='button' class='btn btn-default' onclick='javascript: reportResult(\"fail\");'><span class='glyphicon glyphicon-remove-sign'></span>&nbsp;Fail</button>" + $("#footer").html());
 }
 
 $(document).ready(function(){
