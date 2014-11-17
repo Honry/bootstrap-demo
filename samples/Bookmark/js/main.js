@@ -69,7 +69,7 @@ function remove(id) {
 
 $(document).ready(function() {
   $("#add").click(add);
-  showMessage("help", "This sample is designed by BookmarkManagerObject, BookmarkManager and BookmarkItem interfaces.");
+  showMessage("help", "");
   tizen.bookmark.remove();
   bookmarkList = [];
   j = 0;

@@ -31,7 +31,7 @@ Authors:
 var lstorage = window.localStorage;
 var tid = location.search.split('=')[1];
 var casearr = JSON.parse(lstorage.getItem(tid));
-var sid = casearr.sid;
+var sid = 1;
 
 function EnablePassButton() {
   $('#pass_button').attr('disabled', false);
@@ -44,21 +44,6 @@ function DisablePassButton() {
 function back() {
   //need to add method to deal with when it is a subcase
   window.location.href = "../../tests_list.html?sid=" + sid;
-}
-
-function showMessage(type, msg) {
-  $("#myModal").html("<div id='modal-dialog' class='modal-dialog' style='position: fixed; width: auto; left: 25%; margin-top: 0px;'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button><h3 class='modal-title'><span id='myModalLabel' class='glyphicon'></span></h3></div><div id='modal-body' class='modal-body'></div><div class='modal-footer'></div></div></div>");
-  $("#modal-body").html(msg);
-  if (type == "help") {
-    $("#modal-dialog").css("bottom", "30px");
-    $("#myModalLabel").addClass("glyphicon-info-sign");
-  } else if (type == "success") {
-    $("#modal-dialog").css("bottom", "30%");
-    $("#myModalLabel").addClass("glyphicon-ok-sign");
-  } else if (type == "error") {
-    $("#modal-dialog").css("bottom", "30%");
-    $("#myModalLabel").addClass("glyphicon-warning-sign");
-  }
 }
 
 function reportResult(res) {
@@ -76,6 +61,18 @@ function reportResult(res) {
   back();
 }
 
+function initStep(testname) {
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  var addr = window.location.href;
+  var str = addr.substring(addr.indexOf("/samples/") + 9,addr.indexOf("/index.html"));
+  script.src = "../../steps/" + str + "/step.js";
+  document.body.appendChild(script);
+  if(typeof step != "undefined") {
+    addPassFailButton();
+  }
+}
+
 function addPassFailButton() {
   $("#footer").html("<button id='pass_button' type='button' class='btn btn-default' onclick='javascript: reportResult(\"pass\");'><span class='glyphicon glyphicon-ok-sign'></span>&nbsp;Pass</button><button type='button' class='btn btn-default' onclick='javascript: reportResult(\"fail\");'><span class='glyphicon glyphicon-remove-sign'></span>&nbsp;Fail</button>" + $("#footer").html());
 }
@@ -84,9 +81,7 @@ $(document).ready(function(){
   document.title = tid;
   $("#main_page_title").text(tid);
   $("#header").addClass("navbar navbar-default navbar-fixed-top text-center");
-  $("#footer").html("<button type='button' class='btn btn-default' data-toggle='modal' data-target='#myModal'><span class='glyphicon glyphicon-info-sign'></span>Help</button><button type='button' class='btn btn-default' onclick='javascript: back();'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</button>");
-  if(step) {
-    addPassFailButton();
-  }
+  $("#footer").html("<button type='button' class='btn btn-default' data-toggle='modal' data-target='#myModal'><span class='glyphicon glyphicon-info-sign'></span>&nbsp;Help</button><button type='button' class='btn btn-default' onclick='javascript: back();'><span class='glyphicon glyphicon-circle-arrow-left'></span>&nbsp;Back</button>");
   $("#footer").addClass("container text-center");
+  initStep(tid);
 });
