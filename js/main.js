@@ -69,7 +69,7 @@ function testStorage() {
   lstorage.clear();
   var tests = getApps();
   var i = 0;
-  var sname, sbg, sicon, tid, tnum, tids, tpass, tfail, setarr, casearr;
+  var sname, sbg, sicon, tid, tnum, tids, tpass, tfail, setarr, setresarr, casearr;
   /** set loop **/
   $(tests).find("set").each(function() {
     sname = $(this).attr("name");
@@ -98,6 +98,8 @@ function testStorage() {
     });
     setarr = {name:sname, background:sbg, icon:sicon, tids:tids.substring(0, tids.length-1)};
     lstorage.setItem("set" + i, JSON.stringify(setarr)); //store set info
+    setresarr = {listnum:j, passnum:"", failnum:""};
+    lstorage.setItem("set" + i + "res", JSON.stringify(setresarr)); //store set result
   });
   lstorage.setItem("setnum", i);  //store set total num
 }
@@ -111,18 +113,29 @@ function listSet() {
     var sbg = "color-swatches " + setarr.background;
     var sicon = "glyphicon " + setarr.icon;
     var surl = "tests_list.html?sid=" + sid;
+    var setresarr = JSON.parse(lstorage.getItem(sid + "res"));
+    var listnum = parseInt(setresarr.listnum);
+    var passnum = setresarr.passnum;
+    var failnum = setresarr.failnum;
+    var setresline = "";
+    if(passnum != "" || failnum != "") {
+      var setresline = '<span class=\"label label-success\">Pass:&nbsp;' + passnum + '</span>\n'
+                      + '<span class=\"label label-danger\">Fail:&nbsp;' + failnum + '</span>\n'
+                      + '<span class=\"label label-default\">Notrun:&nbsp;' + (listnum-parseInt(passnum)-parseInt(failnum)) + '</span>\n';
+    }
     var setline = '<div class=\"col-md-4\">\n<div class=\"media\">\n'
                   + '<a class=\"pull-left\" href=\"' + surl + '\">\n'
                   + '<div class=\"' + sbg + '\"><span class=\"' + sicon + '\"></span></div>\n</a>\n'
                   + '<div class=\"media-body\">\n'
-                  + '<a href=\"' + surl +'\"><h4 class=\"media-heading\">' + sname + '</h4></a>\n' + sname + '\n'
+                  + '<a href=\"' + surl +'\"><h4 class=\"media-heading\">' + sname + '</h4></a>\n'
+                  + setresline
                   + '</div>\n</div>\n</div>\n';
     $('#myset').append(setline);
   }
 }
 
 $(document).ready(function(){
-    testStorage();
+  testStorage();
   if(lstorage.getItem("setnum") == null) {
     sstorage.setItem("lsflag", "1"); //flag for once testing without exiting app
     testStorage();
