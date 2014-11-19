@@ -28,6 +28,8 @@ Authors:
         Lin, Wanming <wanmingx.lin@intel.com>
 */
 
+var popup_info;
+
 if(!window.localStorage) {
   showMessage("error", "This platform does not support localStorage!");
 }
@@ -48,21 +50,6 @@ function getApps() {
     error: function(e){showMessage("error", "Error:" + e.message + " occurs when parsing tests.xml file!")}
   });
   return tests;
-}
-
-function showMessage(type, msg) {
-  $("#myModal").html("<div id='modal-dialog' class='modal-dialog' style='position: fixed; width: auto; left: 25%; margin-top: 0px;'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button><h3 class='modal-title'><span id='myModalLabel' class='glyphicon'></span></h3></div><div id='modal-body' class='modal-body'></div><div class='modal-footer'></div></div></div>");
-  $("#modal-body").html(msg);
-  if (type == "help") {
-    $("#modal-dialog").css("bottom", "30px");
-    $("#myModalLabel").addClass("glyphicon-info-sign");
-  } else if (type == "success") {
-    $("#modal-dialog").css("bottom", "30%");
-    $("#myModalLabel").addClass("glyphicon-ok-sign");
-  } else if (type == "error") {
-    $("#modal-dialog").css("bottom", "30%");
-    $("#myModalLabel").addClass("glyphicon-warning-sign");
-  }
 }
 
 function testStorage() {
@@ -134,7 +121,19 @@ function listSet() {
   }
 }
 
+function help() {
+  showMessage("help", popup_info);
+}
+
+function exit() {
+  window.open('', '_self');
+  window.close();
+}
+
 $(document).ready(function(){
+  popup_info = $("#popup_info").html();
+  $("#help").click(help);
+  $("#exit").click(exit);
   testStorage();
   if(lstorage.getItem("setnum") == null) {
     sstorage.setItem("lsflag", "1"); //flag for once testing without exiting app
