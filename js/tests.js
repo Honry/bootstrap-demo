@@ -27,11 +27,11 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 Authors:
         Liu, Yun <yunx.liu@intel.com>
 */
-
+var popup_info;
 var lstorage = window.localStorage;
 var tid = location.search.split('=')[1];
 var casearr = JSON.parse(lstorage.getItem(tid));
-var sid = 1;
+var sid = casearr.sid;
 
 function EnablePassButton() {
   $('#pass_button').attr('disabled', false);
@@ -68,8 +68,13 @@ function initStep(testname) {
   var str = addr.substring(addr.indexOf("/samples/") + 9,addr.indexOf("/index.html"));
   script.src = "../../steps/" + str + "/step.js";
   document.body.appendChild(script);
-  if(typeof step != "undefined") {
-    addPassFailButton();
+  script.onload = script.onreadystatechange = null;
+  script.onload = script.onreadystatechange = function() {
+    if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
+      if(typeof step != "undefined") {
+        addPassFailButton();
+      }
+    }
   }
 }
 
@@ -77,11 +82,17 @@ function addPassFailButton() {
   $("#footer").html("<button id='pass_button' type='button' class='btn btn-default' onclick='javascript: reportResult(\"pass\");'><span class='glyphicon glyphicon-ok-sign'></span>&nbsp;Pass</button><button type='button' class='btn btn-default' onclick='javascript: reportResult(\"fail\");'><span class='glyphicon glyphicon-remove-sign'></span>&nbsp;Fail</button>" + $("#footer").html());
 }
 
+function help() {
+  showMessage("help", popup_info);
+}
+
 $(document).ready(function(){
   document.title = tid;
   $("#main_page_title").text(tid);
   $("#header").addClass("navbar navbar-default navbar-fixed-top text-center");
-  $("#footer").html("<button type='button' class='btn btn-default' data-toggle='modal' data-target='#myModal'><span class='glyphicon glyphicon-info-sign'></span>&nbsp;Help</button><button type='button' class='btn btn-default' onclick='javascript: back();'><span class='glyphicon glyphicon-circle-arrow-left'></span>&nbsp;Back</button>");
+  $("#footer").html("<button type='button' id='help' class='btn btn-default' data-toggle='modal' data-target='#popup_info'><span class='glyphicon glyphicon-info-sign'></span>&nbsp;Help</button><button type='button' class='btn btn-default' onclick='javascript: back();'><span class='glyphicon glyphicon-circle-arrow-left'></span>&nbsp;Back</button>");
   $("#footer").addClass("container text-center");
   initStep(tid);
+  $("#help").click(help);
+  popup_info = $("#popup_info").html();
 });

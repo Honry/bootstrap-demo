@@ -38,6 +38,7 @@ Authors:
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/common.js"></script>
     <script src="js/main.js"></script>
   </head>
   <body>
@@ -57,7 +58,7 @@ Authors:
     <div class="footer">
       <div class="container text-center">
         <div class="btn-group">
-          <button type="button" id="help" class="btn btn-default">
+          <button type="button" id="help" class="btn btn-default" data-toggle='modal' data-target='#popup_info'>
             <span class="glyphicon glyphicon-info-sign"></span>&nbsp;Help
           </button>
           <button type="button" id="exit" class="btn btn-default">
@@ -66,7 +67,7 @@ Authors:
         </div>
       </div>
     </div>
-    <div id="popup_info" style="visibility:hidden">
+    <div id="popup_info" class="modal fade">
         <p>&nbsp;&nbsp;This sample demonstrates the basic usage of standard APIs that are supported by Crosswalk.&nbsp;&nbsp;</p>
         <p>&nbsp;&nbsp;Please refer to the API spec details to <a href="https://crosswalk-project.org/#documentation/apis/web_apis">https://crosswalk-project.org/#documentation/apis/web_apis</a>&nbsp;&nbsp;</p>
     </div>

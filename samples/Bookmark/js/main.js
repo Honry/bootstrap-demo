@@ -69,7 +69,6 @@ function remove(id) {
 
 $(document).ready(function() {
   $("#add").click(add);
-  showMessage("help", "");
   tizen.bookmark.remove();
   bookmarkList = [];
   j = 0;

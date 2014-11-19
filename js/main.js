@@ -28,6 +28,8 @@ Authors:
         Lin, Wanming <wanmingx.lin@intel.com>
 */
 
+var popup_info;
+
 if(!window.localStorage) {
   showMessage("error", "This platform does not support localStorage!");
 }
@@ -119,7 +121,19 @@ function listSet() {
   }
 }
 
+function help() {
+  showMessage("help", popup_info);
+}
+
+function exit() {
+  window.open('', '_self');
+  window.close();
+}
+
 $(document).ready(function(){
+  popup_info = $("#popup_info").html();
+  $("#help").click(help);
+  $("#exit").click(exit);
   testStorage();
   if(lstorage.getItem("setnum") == null) {
     sstorage.setItem("lsflag", "1"); //flag for once testing without exiting app
