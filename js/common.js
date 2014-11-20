@@ -29,7 +29,7 @@ Authors:
 */
 
 function showMessage(type, msg) {
-  $("#popup_info").html("<div id='modal-dialog' class='modal-dialog' style='position: fixed; width: auto; min-width: 40%; left: 25%; margin-top: 0px;'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button><h3 class='modal-title'><span id='myModalLabel' class='glyphicon'></span></h3></div><div id='modal-body' class='modal-body'></div><div class='modal-footer'></div></div></div>");
+  $("#popup_info").html("<div id='modal-dialog' class='modal-dialog' style='position: fixed; width: auto; min-width: 40%; left: 25%; margin-top: 0px;'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button><h3 class='modal-title'><span id='myModalLabel' class='glyphicon'></span></h3></div><div id='modal-body' class='modal-body'></div><div id='modal-footer' class='modal-footer'></div></div></div>");
   $("#modal-body").html(msg);
   if (type == "help") {
     $("#modal-dialog").css("bottom", "30px");
@@ -40,5 +40,9 @@ function showMessage(type, msg) {
   } else if (type == "error") {
     $("#modal-dialog").css("bottom", "30%");
     $("#myModalLabel").addClass("glyphicon-warning-sign");
+  } else if (type == "ifConfirm") {
+    $("#modal-footer").html("<button type='button' class='btn btn-default' data-dismiss='modal'>cancel</button><button type='button' id='ifConfirm' class='btn btn-default'>confirm</button>");
+    $("#modal-dialog").css("bottom", "30%");
+    $("#myModalLabel").addClass("glyphicon-log-out");
   }
 }

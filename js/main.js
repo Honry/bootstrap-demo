@@ -126,8 +126,17 @@ function help() {
 }
 
 function exit() {
+  showMessage("ifConfirm", "Are you sure to exit?");
+  $("#ifConfirm").click(confirmExit);
+}
+
+function confirmExit() {
   window.open('', '_self');
   window.close();
+}
+
+function uselstorage() {
+  
 }
 
 $(document).ready(function(){
@@ -140,7 +149,8 @@ $(document).ready(function(){
     testStorage();
   } else {
     if(sstorage.getItem("lsflag") == null) {
-      //ask if need use old lstorage
+      showMessage("ifConfirm", "Do you need use old lstorage?");//ask if need use old lstorage
+      $("#ifConfirm").click(uselstorage);
     }
   }
   listSet();
