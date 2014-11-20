@@ -40,8 +40,12 @@ function showMessage(type, msg) {
   } else if (type == "error") {
     $("#modal-dialog").css("bottom", "30%");
     $("#myModalLabel").addClass("glyphicon-warning-sign");
-  } else if (type == "ifConfirm") {
-    $("#modal-footer").html("<button type='button' class='btn btn-default' data-dismiss='modal'>cancel</button><button type='button' id='ifConfirm' class='btn btn-default'>confirm</button>");
+  } else if (type == "lstorage") {
+    $("#modal-footer").html("<button type='button' id='ifCancel' class='btn btn-default'>Cancel</button><button type='button' class='btn btn-default' data-dismiss='modal'>OK</button>");
+    $("#modal-dialog").css("bottom", "30%");
+    $("#myModalLabel").addClass("glyphicon-question-sign");
+  } else if (type == "exit") {
+    $("#modal-footer").html("<button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button><button type='button' id='ifConfirm' class='btn btn-default'>Exit</button>");
     $("#modal-dialog").css("bottom", "30%");
     $("#myModalLabel").addClass("glyphicon-log-out");
   }
