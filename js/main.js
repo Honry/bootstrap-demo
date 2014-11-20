@@ -126,7 +126,7 @@ function help() {
 }
 
 function exit() {
-  showMessage("ifConfirm", "Are you sure to exit?");
+  showMessage("exit", "Are you sure to exit?");
   $("#ifConfirm").click(confirmExit);
 }
 
@@ -136,21 +136,20 @@ function confirmExit() {
 }
 
 function uselstorage() {
-  
+  testStorage();
 }
 
 $(document).ready(function(){
   popup_info = $("#popup_info").html();
   $("#help").click(help);
   $("#exit").click(exit);
-  testStorage();
   if(lstorage.getItem("setnum") == null) {
     sstorage.setItem("lsflag", "1"); //flag for once testing without exiting app
     testStorage();
   } else {
     if(sstorage.getItem("lsflag") == null) {
-      showMessage("ifConfirm", "Do you need use old lstorage?");//ask if need use old lstorage
-      $("#ifConfirm").click(uselstorage);
+      $("#popup_info").modal(showMessage("lstorage", "Do you need use old lstorage?"));//ask if need use old lstorage
+      $("#ifCancel").click(uselstorage);
     }
   }
   listSet();
