@@ -33,18 +33,6 @@ var tid = location.search.split('=')[1];
 var casearr = JSON.parse(lstorage.getItem(tid));
 var sid = casearr.sid;
 
-function subcaseStorage() {
-  $.getJSON('subcase.json', function(subcase) {
-    var i = 0;
-    $.each(subcase, function(infoIndex, info) {
-      i++;
-      var subcasearr = {id: info["id"], entry: info["entry"], result:"", tid: tid}; //result: "pass", "fail", ""
-      lstorage.setItem(tid + i, JSON.stringify(subcasearr)); //store subcase info
-    });
-    lstorage.setItem(tid + "-num", i);
-  });
-}
-
 function back() {
   window.location.href = "../../tests_list.html?sid=" + sid;
 }
@@ -56,22 +44,30 @@ function listSubcase() {
   var tnum = parseInt(casearr.num);
   var passnum = failnum = 0;
   var tresult = subresult = "";
-  for(var i = 0; i < tnum; i++) {
-    var subkey = tid + (i + 1);
-    var subcasearr = JSON.parse(lstorage.getItem(subkey));
-    subresult = subcasearr.result;
-    var subid = subcasearr.id;
-    var suburl = subcasearr.entry + "?subkey=" + subkey;
-    passnum = subresult == "pass" ? passnum + 1 : passnum;
-    failnum = subresult == "fail" ? failnum + 1 : failnum;
-    var testline = '<div class=\"col-md-3\">\n<div class=\"media ' + subresult + '\">\n'
-                  + '<a class=\"pull-left\" href=\"' + suburl + '\">\n'
-                  + '<div class=\"' + tbg + '\"><span class=\"' + ticon + '\"></span></div>\n</a>\n'
-                  + '<div class=\"media-body\">\n'
-                  + '<a href=\"' + suburl +'\"><h5 class=\"media-heading\">' + subid + '</h5></a>\n'
-                  + '</div>\n</div>\n</div>\n';
-    $('#mytest').append(testline);
-  }
+  var subtests = getApps("subcase.json", "json");
+  var i = 0;
+  $(subtests).each(function() {
+      i++;
+      var subkey = tid + i;
+      if(lstorage.getItem(subkey) != null) {
+        subresult = JSON.parse(lstorage.getItem(subkey)).result;
+      }
+      var subid = $(this).attr("id");
+      var suburl = $(this).attr("entry") + "?subkey=" + subkey;
+      passnum = subresult == "pass" ? passnum + 1 : passnum;
+      failnum = subresult == "fail" ? failnum + 1 : failnum;
+      var testline = '<div class=\"col-md-3\">\n<div class=\"media ' + subresult + '\">\n'
+                    + '<a class=\"pull-left\" href=\"' + suburl + '\">\n'
+                    + '<div class=\"' + tbg + '\"><span class=\"' + ticon + '\"></span></div>\n</a>\n'
+                    + '<div class=\"media-body\">\n'
+                    + '<a href=\"' + suburl +'\"><h5 class=\"media-heading\">' + subid + '</h5></a>\n'
+                    + '</div>\n</div>\n</div>\n';
+      $('#mytest').append(testline);
+      if(lstorage.getItem(subkey) == null) {
+        var subcasearr = {id: subid, result:"", tid: tid}; //result: "pass", "fail", ""
+        lstorage.setItem(subkey, JSON.stringify(subcasearr)); //store subcase info
+      }
+  });
   if(passnum == 0 && failnum == 0)
     tresult = "";
   else if(tnum == passnum)
@@ -85,8 +81,5 @@ function listSubcase() {
 $(document).ready(function(){
   $('#casename').append(tid);
   document.title = tid;
-  if(lstorage.getItem(tid + "-num") == null) {
-    subcaseStorage();
-  }
   listSubcase();
 });

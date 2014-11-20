@@ -67,7 +67,7 @@ function back() {
 function reportResult(res) {
   var storearr;
   if (isSubcase) {
-    storearr = {id: subid, entry: keyarr.entry, result: res, tid: tid};
+    storearr = {id: subid, result: res, tid: tid};
   } else {
     storearr = {num: 1, pass: "0", fail: "0", result: res, sid: sid};
   }

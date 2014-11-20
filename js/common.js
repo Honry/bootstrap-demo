@@ -58,3 +58,16 @@ function showMessage(type, msg) {
       break;
   }
 }
+
+function getApps(url, type) {
+  var tests = "";
+  $.ajax({
+    async : false,
+    type : "GET",
+    url : url,
+    dataType : type,
+    success : function(type){tests = type;},
+    error: function(e){showMessage("error", "Error:" + e.message + " occurs when parsing " + url + " file!")}
+  });
+  return tests;
+}

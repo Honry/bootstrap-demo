@@ -39,22 +39,9 @@ if(!window.sessionStorage) {
 var lstorage = window.localStorage;
 var sstorage = window.sessionStorage;
 
-function getApps() {
-  var tests = "";
-  $.ajax({
-    async : false,
-    type : "GET",
-    url : "tests.xml",
-    dataType : "xml",
-    success : function(xml){tests = xml;},
-    error: function(e){showMessage("error", "Error:" + e.message + " occurs when parsing tests.xml file!")}
-  });
-  return tests;
-}
-
 function testStorage() {
   lstorage.clear();
-  var tests = getApps();
+  var tests = getApps("tests.xml", "xml");
   var i = 0;
   var sname, sbg, sicon, tid, tnum, tids, tpass, tfail, setarr, setresarr, casearr;
   /** set loop **/
