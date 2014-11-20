@@ -55,11 +55,11 @@ function listSubcase() {
   var ticon = "glyphicon " + setarr.icon;
   var tnum = parseInt(casearr.num);
   var passnum = failnum = 0;
-  var tresult = "";
+  var tresult = subresult = "";
   for(var i = 0; i < tnum; i++) {
     var subkey = tid + (i + 1);
     var subcasearr = JSON.parse(lstorage.getItem(subkey));
-    var subresult = subcasearr.result;
+    subresult = subcasearr.result;
     var subid = subcasearr.id;
     var suburl = subcasearr.entry + "?subkey=" + subkey;
     passnum = subresult == "pass" ? passnum + 1 : passnum;
@@ -85,7 +85,6 @@ function listSubcase() {
 $(document).ready(function(){
   $('#casename').append(tid);
   document.title = tid;
-
   if(lstorage.getItem(tid + "-num") == null) {
     subcaseStorage();
   }

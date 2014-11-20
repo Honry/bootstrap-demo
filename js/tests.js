@@ -65,8 +65,8 @@ function initStep(testname) {
   var script = document.createElement("script");
   script.type = "text/javascript";
   var addr = window.location.href;
-  var str = addr.substring(addr.indexOf("/samples/") + 9,addr.indexOf("/index.html"));
-  script.src = "../../steps/" + str + "/step.js";
+  var str = addr.substring(0, addr.indexOf("/index.html"));
+  script.src = str.replace("/samples/", "/steps/") + "/step.js";
   document.body.appendChild(script);
   script.onload = script.onreadystatechange = null;
   script.onload = script.onreadystatechange = function() {
