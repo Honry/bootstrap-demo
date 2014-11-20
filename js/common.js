@@ -45,7 +45,7 @@ function showMessage(type, msg) {
       $("#myModalLabel").addClass("glyphicon-warning-sign");
       break;
     case "lstorage":
-      $("#modal-footer").html("<button type='button' id='ifCancel' class='btn btn-default'>Cancel</button><button type='button' class='btn btn-default' data-dismiss='modal'>OK</button>");
+      $("#modal-footer").html("<button type='button' id='ifCancel' class='btn btn-default' data-dismiss='modal'>Cancel</button><button type='button' class='btn btn-default' data-dismiss='modal'>OK</button>");
       $("#modal-dialog").css("bottom", "30%");
       $("#myModalLabel").addClass("glyphicon-question-sign");
       break;

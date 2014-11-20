@@ -148,7 +148,7 @@ $(document).ready(function(){
     testStorage();
   } else {
     if(sstorage.getItem("lsflag") == null) {
-      $("#popup_info").modal(showMessage("lstorage", "Do you need use old lstorage?"));//ask if need use old lstorage
+      $("#popup_info").modal(showMessage("lstorage", "Do you want to continue the last test?"));//ask if need use old lstorage
       $("#ifCancel").click(uselstorage);
     }
   }
