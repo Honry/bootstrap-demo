@@ -72,7 +72,7 @@ function initStep(testname) {
   script.onload = script.onreadystatechange = function() {
     if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
       if(typeof step != "undefined") {
-        addPassFailButton();
+        addPassFailButton();        
       }
     }
   }
@@ -83,7 +83,11 @@ function addPassFailButton() {
 }
 
 function help() {
-  showMessage("help", popup_info);
+  if(typeof step != "undefined") {
+    showMessage("help", step);
+  } else {
+    showMessage("help", popup_info);
+  }
 }
 
 $(document).ready(function(){
