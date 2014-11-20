@@ -27,11 +27,24 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 Authors:
         Liu, Yun <yunx.liu@intel.com>
 */
-var popup_info;
+
+var popup_info, tid, subid, sid, title;
 var lstorage = window.localStorage;
-var tid = location.search.split('=')[1];
-var casearr = JSON.parse(lstorage.getItem(tid));
-var sid = casearr.sid;
+var addr = window.location.href;
+var id = location.search.split('=')[1];
+var isSubcase = false;
+var keyarr = JSON.parse(lstorage.getItem(id));
+
+if(location.search.indexOf('subkey=') > 0) {
+  isSubcase = true;
+  subid = keyarr.id;
+  tid = keyarr.tid;
+  title = tid + " - " + subid;
+} else {
+  sid = keyarr.sid;
+  tid = id;
+  title = tid;
+}
 
 function EnablePassButton() {
   $('#pass_button').attr('disabled', false);
@@ -42,29 +55,29 @@ function DisablePassButton() {
 }
 
 function back() {
-  //need to add method to deal with when it is a subcase
-  window.location.href = "../../tests_list.html?sid=" + sid;
+  var url;
+  if(isSubcase) {
+    url = addr.substring(0, addr.indexOf("/" + tid + "/") + tid.length + 2) + "index.html?tid=" + tid;
+  } else {
+    url = addr.substring(0, addr.indexOf("/samples/")) + "/tests_list.html?sid=" + sid;
+  }
+  window.location.href = url;
 }
 
 function reportResult(res) {
-  var tpass = parseInt(casearr.pass);
-  var tfail = parseInt(casearr.fail);
-  var tresult = casearr.result;
-  var tnum = parseInt(casearr.num);
-  if (tnum > 1) {
-    //deal with subcase
+  var storearr;
+  if (isSubcase) {
+    storearr = {id: subid, entry: keyarr.entry, result: res, tid: tid};
   } else {
-    tresult = res;
+    storearr = {num: 1, pass: "0", fail: "0", result: res, sid: sid};
   }
-  casearr = {num:tnum, pass:tpass, fail:tfail, result:tresult, sid:sid};
-  lstorage.setItem(tid, JSON.stringify(casearr));
+  lstorage.setItem(id, JSON.stringify(storearr));
   back();
 }
 
 function initStep(testname) {
   var script = document.createElement("script");
   script.type = "text/javascript";
-  var addr = window.location.href;
   var str = addr.substring(0, addr.indexOf("/index.html"));
   script.src = str.replace("/samples/", "/steps/") + "/step.js";
   document.body.appendChild(script);
@@ -91,8 +104,8 @@ function help() {
 }
 
 $(document).ready(function(){
-  document.title = tid;
-  $("#main_page_title").text(tid);
+  document.title = title;
+  $("#main_page_title").text(title);
   $("#header").addClass("navbar navbar-default navbar-fixed-top text-center");
   $("#footer").html("<button type='button' id='help' class='btn btn-default' data-toggle='modal' data-target='#popup_info'><span class='glyphicon glyphicon-info-sign'></span>&nbsp;Help</button><button type='button' class='btn btn-default' onclick='javascript: back();'><span class='glyphicon glyphicon-circle-arrow-left'></span>&nbsp;Back</button>");
   $("#footer").addClass("container text-center");
