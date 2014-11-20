@@ -31,22 +31,30 @@ Authors:
 function showMessage(type, msg) {
   $("#popup_info").html("<div id='modal-dialog' class='modal-dialog' style='position: fixed; width: auto; min-width: 40%; left: 25%; margin-top: 0px;'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button><h3 class='modal-title'><span id='myModalLabel' class='glyphicon'></span></h3></div><div id='modal-body' class='modal-body'></div><div id='modal-footer' class='modal-footer'></div></div></div>");
   $("#modal-body").html(msg);
-  if (type == "help") {
-    $("#modal-dialog").css("bottom", "30px");
-    $("#myModalLabel").addClass("glyphicon-info-sign");
-  } else if (type == "success") {
-    $("#modal-dialog").css("bottom", "30%");
-    $("#myModalLabel").addClass("glyphicon-ok-sign");
-  } else if (type == "error") {
-    $("#modal-dialog").css("bottom", "30%");
-    $("#myModalLabel").addClass("glyphicon-warning-sign");
-  } else if (type == "lstorage") {
-    $("#modal-footer").html("<button type='button' id='ifCancel' class='btn btn-default'>Cancel</button><button type='button' class='btn btn-default' data-dismiss='modal'>OK</button>");
-    $("#modal-dialog").css("bottom", "30%");
-    $("#myModalLabel").addClass("glyphicon-question-sign");
-  } else if (type == "exit") {
-    $("#modal-footer").html("<button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button><button type='button' id='ifConfirm' class='btn btn-default'>Exit</button>");
-    $("#modal-dialog").css("bottom", "30%");
-    $("#myModalLabel").addClass("glyphicon-log-out");
+  switch(type) {
+    case "help":
+      $("#modal-dialog").css("bottom", "30px");
+      $("#myModalLabel").addClass("glyphicon-info-sign");
+      break;
+    case "success":
+      $("#modal-dialog").css("bottom", "30%");
+      $("#myModalLabel").addClass("glyphicon-ok-sign");
+      break;
+    case "error":
+      $("#modal-dialog").css("bottom", "30%");
+      $("#myModalLabel").addClass("glyphicon-warning-sign");
+      break;
+    case "lstorage":
+      $("#modal-footer").html("<button type='button' id='ifCancel' class='btn btn-default'>Cancel</button><button type='button' class='btn btn-default' data-dismiss='modal'>OK</button>");
+      $("#modal-dialog").css("bottom", "30%");
+      $("#myModalLabel").addClass("glyphicon-question-sign");
+      break;
+    case "exit":
+      $("#modal-footer").html("<button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button><button type='button' id='ifConfirm' class='btn btn-default'>Exit</button>");
+      $("#modal-dialog").css("bottom", "30%");
+      $("#myModalLabel").addClass("glyphicon-log-out");
+      break;
+    default:
+      break;
   }
 }
