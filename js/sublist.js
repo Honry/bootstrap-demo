@@ -72,7 +72,7 @@ function listSubcase() {
                   + '</div>\n</div>\n</div>\n';
     $('#mytest').append(testline);
   }
-  if(passnum == failnum == 0)
+  if(passnum == 0 && failnum == 0)
     tresult = "";
   else if(tnum == passnum)
     tresult = "pass";

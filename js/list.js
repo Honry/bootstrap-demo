@@ -64,7 +64,7 @@ function listTest() {
                   + '</div>\n</div>\n</div>\n';
     $('#mytest').append(testline);
   }
-  if(passnum == failnum == 0)
+  if(passnum == 0 && failnum == 0)
     passnum == failnum == "";
   var setresarr = {listnum:tids.length, passnum:passnum, failnum:failnum};
   lstorage.setItem(sid + "res", JSON.stringify(setresarr));
