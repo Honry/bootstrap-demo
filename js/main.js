@@ -123,6 +123,7 @@ function confirmExit() {
 }
 
 function uselstorage() {
+  window.location.reload();
   testStorage();
 }
 
@@ -131,7 +132,6 @@ $(document).ready(function(){
   $("#help").click(help);
   $("#exit").click(exit);
   if(lstorage.getItem("setnum") == null) {
-    sstorage.setItem("lsflag", "1"); //flag for once testing without exiting app
     testStorage();
   } else {
     if(sstorage.getItem("lsflag") == null) {
@@ -139,6 +139,7 @@ $(document).ready(function(){
       $("#ifCancel").click(uselstorage);
     }
   }
+  sstorage.setItem("lsflag", "1"); //flag for once testing without exiting app
   listSet();
 });
 

@@ -68,6 +68,7 @@ function listSubcase() {
         lstorage.setItem(subkey, JSON.stringify(subcasearr)); //store subcase info
       }
   });
+  //error handle for unmatch subcase num
   if(passnum == 0 && failnum == 0)
     tresult = "";
   else if(tnum == passnum)
