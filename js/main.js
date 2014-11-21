@@ -44,6 +44,12 @@ function testStorage() {
   var tests = getApps("tests.xml", "xml");
   var i = 0;
   var sname, sbg, sicon, tid, tnum, tids, tpass, tfail, setarr, setresarr, casearr;
+  /** get&set app-version **/
+  var version = "";
+  $(getApps("appVersion", "json")).each(function() {
+    version = $(this).attr("app-version");
+  });
+  lstorage.setItem("app-version", version);
   /** set loop **/
   $(tests).find("set").each(function() {
     sname = $(this).attr("name");
@@ -79,6 +85,7 @@ function testStorage() {
 }
 
 function listSet() {
+  document.getElementById('app-version').innerHTML = lstorage.getItem("app-version");
   var snum = parseInt(lstorage.getItem("setnum"));
   for(var i = 0; i < snum; i++) {
     var sid = "set" + (i + 1);

@@ -72,6 +72,7 @@ function listTest() {
 
 $(document).ready(function(){
   document.title = sid;
+  document.getElementById('app-version').innerHTML = lstorage.getItem("app-version");
   listTest();
 });
 

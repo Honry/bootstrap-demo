@@ -82,6 +82,7 @@ function listSubcase() {
 }
 
 $(document).ready(function(){
+  document.getElementById('app-version').innerHTML = lstorage.getItem("app-version");
   $('#casename').append(tid);
   document.title = tid;
   listSubcase();
