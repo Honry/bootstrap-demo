@@ -38,6 +38,7 @@ Authors:
         <link rel="stylesheet" type="text/css" href="../../css/main.css">
         <script src="../../js/jquery-1.11.1.min.js"></script>
         <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/common.js"></script>
         <script src="../../js/tests.js"></script>
         <script src="js/main.js"></script>
         <style>
@@ -54,22 +55,22 @@ Authors:
         <div id="header">
           <h3 id="main_page_title"></h3>
         </div>
-        <div id="content">
+        <div class="content">
             <h4>This sample demonstrates the MessagePort with sending message.</h4>
             <div id="test"></div>
-            <div class="form-group" style="margin-top: 10px;">
-              <label for="pc1_input" class="col-sm-2 control-label">send message:</label>
-              <div class="col-sm-10">
-                 <input type="text" class="form-control" id="pc1_input">
-              </div>
+            <div class="div-bar">
+              <label for="pc1_input" class="div-bar-a">send message:</label>
+              <input type="text" class="form-control div-bar-b" id="pc1_input">
             </div>
-            <div style="margin-top: 10px;">
+            <div class="div-bar">
               <button id="pc1_send" type="button" class="btn btn-default btn-lg btn-block">Send</button>
             </div>
         </div>
         <div class="footer">
           <div id="footer"></div>
         </div>
-        <div class="modal fade" id="popup_info"></div>
+        <div class="modal fade" id="popup_info">
+          <p>This sample is designed by MessagePortManagerObject, MessagePortManager, LocalMessagePort and RemoteMessagePort interfaces.</p>
+        </div>
     </body>
 </html>

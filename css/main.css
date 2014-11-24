@@ -231,4 +231,26 @@ margin-top: 1px;
 }
 .div-bar-a{
   float: left;
+  padding-top: 10px;
+  width: 20%;
+}
+.div-bar-b{
+  float: left;
+  width: 80%;
+}
+.bar-grid-a{
+  float: left;
+  width: 50%;
+}
+.bar-grid-b{
+  float: left;
+  width: 33.3%;
+}
+.bar-grid-c{
+  float: left;
+  width: 25%;
+}
+.bar-grid-d{
+  float: left;
+  width: 20%;
 }

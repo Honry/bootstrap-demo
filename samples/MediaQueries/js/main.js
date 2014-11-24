@@ -44,7 +44,6 @@ function status() {
 
 $(document).ready(function () {
     DisablePassButton();
-    showMessage("help", "It is designed by device-aspect-ratio and device-height properties of CSS @media");
     $("#apply1").click(function () {
         testFlag.green = true;
         $("style")[0].innerHTML = $("style")[0].innerHTML +

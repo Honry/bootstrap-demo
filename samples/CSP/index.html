@@ -39,6 +39,7 @@ Authors:
     <script src="../../js/bootstrap.min.js"></script>
     <script src="../../js/sublist.js"></script>
     <script src="../../js/common.js"></script>
+    <script src="../../js/tests.js"></script>
   </head>
   <body>
     <!-- Heading -->
@@ -54,20 +55,11 @@ Authors:
       <div class="row" id="mytest">
       </div>
     </div>
-    <!-- footer -->    
+    <!-- footer -->
     <div class="footer">
-      <div class="container text-center">
-        <div class="btn-group">
-          <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-info-sign"></span>&nbsp;Help
-          </button>
-          <button type="button" class="btn btn-default" onclick="back()">
-            <span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;Back
-          </button>
-        </div>
-      </div>
+      <div id="footer"></div>
     </div>
-    <div id="popup_info" style="visibility: hidden">
+    <div class="modal fade" id="popup_info">
       <p>Verifies the functionality of CSP worked well.</p>
     </div>
   </body>
