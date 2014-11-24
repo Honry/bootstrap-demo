@@ -51,7 +51,6 @@ function sendResourceTiming() {
 }
 
 $(document).ready(function() {
-  showMessage("help", "This sample is designed by Performance and PerformanceEntry interface.");
   DisablePassButton();
   $("#info").css("display", "none");
   $("#loadimg").click(loadimg);

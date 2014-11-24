@@ -39,6 +39,7 @@ Authors:
     <link rel="stylesheet" type="text/css" href="../../css/main.css">
     <script src="../../js/jquery-1.11.1.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/common.js"></script>
     <script src="../../js/tests.js"></script>
     <script src="js/main.js"></script>
     <style>
@@ -55,22 +56,32 @@ Authors:
     <div id="header">
       <h3 id="main_page_title"></h3>
     </div>
-    <div id="content">
+    <div class="content">
       <h4>This sample demonstrates peer to peer communicaton by RTCPeerConnection interface.</h4>
       <div id="datawindow">
       </div>
-      <div id="contentbutton" class="container" style="padding-top: 5px;">
-        <button id="startbutton" type="button" class="btn btn-default btn-lg btn-block">Start Connect</button>
-        <button id="stopbutton" type="button" class="btn btn-default btn-lg btn-block">Stop Connect</button>
-        <div class="form-group" style="padding-top: 15px;">
-          <input type="text" class="form-control" id="pc1_input">
-          <button style="margin-top: 5px;" id="pc1_send" type="button" class="btn btn-default btn-lg btn-block">Send</button>
+      <div class="div-bar">
+        <div class="bar-grid-a">
+          <button id="startbutton" type="button" class="btn btn-default btn-lg btn-block">Start Connect</button>
         </div>
+        <div class="bar-grid-a">
+          <button id="stopbutton" type="button" class="btn btn-default btn-lg btn-block">Stop Connect</button>
+        </div>
+      </div>
+      <div class="div-bar">
+        <input type="text" class="form-control bar-grid-a" id="pc1_input" style="margin-top: 5px;">
+        <button id="pc1_send" type="button" class="btn btn-default btn-lg btn-block bar-grid-a">Send</button>
       </div>
     </div>
     <div class="footer">
       <div id="footer"></div>
     </div>
-    <div class="modal fade" id="popup_info"></div>
+    <div class="modal fade" id="popup_info">
+      <ol>
+        <li>Click the 'Start Connect' button, to connect PC1 and PC2</li>
+        <li>When connection is established, input the message, click the 'Send' button to send message</li>
+        <li>Click the 'Stop Connect' button, to close the connection</li>
+      </ol>
+    </div>
   </body>
 </html>
