@@ -222,3 +222,13 @@ margin-top: 1px;
 .media-body{
 	font-size:12px;
 }
+.content{
+  margin: 10px 20px;
+}
+.div-bar{
+  margin-top: 10px;
+  overflow: hidden;
+}
+.div-bar-a{
+  float: left;
+}

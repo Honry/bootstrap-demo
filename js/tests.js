@@ -95,7 +95,7 @@ function initStep(testname) {
 }
 
 function addPassFailButton() {
-  $("#footer").html("<button id='pass_button' type='button' class='btn btn-default' onclick='javascript: reportResult(\"pass\");'><span class='glyphicon glyphicon-ok-sign'></span>&nbsp;Pass</button><button type='button' class='btn btn-default' onclick='javascript: reportResult(\"fail\");'><span class='glyphicon glyphicon-remove-sign'></span>&nbsp;Fail</button>" + $("#footer").html());
+  $("#btn-group").html("<button id='pass_button' type='button' class='btn btn-default' onclick='javascript: reportResult(\"pass\");'><span class='glyphicon glyphicon-ok-sign'></span>&nbsp;Pass</button><button type='button' class='btn btn-default' onclick='javascript: reportResult(\"fail\");'><span class='glyphicon glyphicon-remove-sign'></span>&nbsp;Fail</button>" + $("#footer").html());
 }
 
 function help() {
@@ -110,7 +110,8 @@ $(document).ready(function(){
   document.title = title;
   $("#main_page_title").text(title);
   $("#header").addClass("navbar navbar-default navbar-fixed-top text-center");
-  $("#footer").html("<button type='button' id='help' class='btn btn-default' data-toggle='modal' data-target='#popup_info'><span class='glyphicon glyphicon-info-sign'></span>&nbsp;Help</button><button type='button' class='btn btn-default' onclick='javascript: back();'><span class='glyphicon glyphicon-circle-arrow-left'></span>&nbsp;Back</button>");
+  $("#footer").html("<div id='btn-group' class='btn-group'></div>");
+  $("#btn-group").html("<button type='button' id='help' class='btn btn-default' data-toggle='modal' data-target='#popup_info'><span class='glyphicon glyphicon-info-sign'></span>&nbsp;Help</button><button type='button' class='btn btn-default' onclick='javascript: back();'><span class='glyphicon glyphicon-circle-arrow-left'></span>&nbsp;Back</button>");
   $("#footer").addClass("container text-center");
   initStep(tid);
   $("#help").click(help);

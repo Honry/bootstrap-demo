@@ -38,6 +38,7 @@ Authors:
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/common.js"></script>
     <script src="js/list.js"></script>
   </head>
   <body>
@@ -58,7 +59,7 @@ Authors:
     <div class="footer">
       <div class="container text-center">
         <div class="btn-group">
-          <button type="button" class="btn btn-default">
+          <button type="button" class="btn btn-default" data-toggle='modal' data-target='#popup_info' onclick="showMessage('help', '')">
             <span class="glyphicon glyphicon-info-sign"></span>&nbsp;Help
           </button>
           <button type="button" class="btn btn-default" onclick="document.location.href='index.html'">
@@ -66,6 +67,8 @@ Authors:
           </button>
         </div>
       </div>
+    </div>
+    <div id="popup_info" class="modal fade">
     </div>
   </body>
 </html>
