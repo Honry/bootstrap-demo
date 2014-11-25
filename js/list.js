@@ -34,6 +34,7 @@ var sid = location.search.split('=')[1];
 function listTest() {
   var setarr = JSON.parse(lstorage.getItem(sid));
   var sname = setarr.name;
+  document.title = sname;
   $('#setname').append(sname);
   var tids = setarr.tids.split(',');
   var tbg = "color-swatches " + setarr.background;
@@ -71,7 +72,6 @@ function listTest() {
 }
 
 $(document).ready(function(){
-  document.title = sid;
   document.getElementById('app-version').innerHTML = lstorage.getItem("app-version");
   listTest();
 });
