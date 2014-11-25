@@ -241,16 +241,24 @@ margin-top: 1px;
 .bar-grid-a{
   float: left;
   width: 50%;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .bar-grid-b{
   float: left;
   width: 33.3%;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .bar-grid-c{
   float: left;
   width: 25%;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .bar-grid-d{
   float: left;
   width: 20%;
+  padding-left: 5px;
+  padding-right: 5px;
 }
