@@ -29,29 +29,39 @@ Authors:
 */
 
 function showMessage(type, msg) {
-  $("#popup_info").html("<div id='modal-dialog' class='modal-dialog' style='position: fixed; width: 50%; left: 25%;'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button><h3 class='modal-title'><span id='myModalLabel' class='glyphicon'></span></h3></div><div id='modal-body' class='modal-body'></div><div id='modal-footer' class='modal-footer'></div></div></div>");
+  $("#popup_info").html("<div id='modal-dialog' class='modal-dialog' style='position: fixed'><div class='modal-content'><div class='modal-header' style='padding: 5px;'><button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button><h4 class='modal-title'><span id='myModalLabel' class='glyphicon'></span></h4></div><div id='modal-body' class='modal-body' style='max-height: 100px; overflow: auto;'></div><div id='modal-footer' class='modal-footer'></div></div></div>");
   $("#modal-body").html(msg);
   switch(type) {
     case "help":
       $("#modal-dialog").css("bottom", "30px");
+      $("#modal-dialog").css("width", "70%");
+      $("#modal-dialog").css("left", "15%");
       $("#myModalLabel").addClass("glyphicon-info-sign");
       break;
     case "success":
       $("#modal-dialog").css("bottom", "30%");
+      $("#modal-dialog").css("width", "50%");
+      $("#modal-dialog").css("left", "25%");
       $("#myModalLabel").addClass("glyphicon-ok-sign");
       break;
     case "error":
       $("#modal-dialog").css("bottom", "30%");
+      $("#modal-dialog").css("width", "50%");
+      $("#modal-dialog").css("left", "25%");
       $("#myModalLabel").addClass("glyphicon-warning-sign");
       break;
     case "lstorage":
-      $("#modal-footer").html("<button type='button' id='ifCancel' class='btn btn-default' data-dismiss='modal'>Cancel</button><button type='button' class='btn btn-default' data-dismiss='modal'>OK</button>");
+      $("#modal-footer").html("<button type='button' class='btn btn-default' data-dismiss='modal'>Yes</button><button type='button' id='ifCancel' class='btn btn-default' data-dismiss='modal'>No</button>");
       $("#modal-dialog").css("bottom", "30%");
+      $("#modal-dialog").css("width", "50%");
+      $("#modal-dialog").css("left", "25%");
       $("#myModalLabel").addClass("glyphicon-question-sign");
       break;
     case "exit":
       $("#modal-footer").html("<button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button><button type='button' id='ifConfirm' class='btn btn-default'>Exit</button>");
       $("#modal-dialog").css("bottom", "30%");
+      $("#modal-dialog").css("width", "50%");
+      $("#modal-dialog").css("left", "25%");
       $("#myModalLabel").addClass("glyphicon-log-out");
       break;
     default:
