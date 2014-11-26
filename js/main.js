@@ -70,15 +70,15 @@ function testStorage() {
       tids += tid + ",";
       tnum = 1;
       if($(this).attr("subcase")) {
-        tnum = $(this).attr("subcase");
+        tnum = parseInt($(this).attr("subcase"));
       }
       casearr = {num:tnum, pass:"0", fail:"0", result:"", sid:"set" + i}; //result: "", "pass", "fail"
-      j++;
+      j += tnum;
       lstorage.setItem(tid, JSON.stringify(casearr)); //store case info
     });
     setarr = {name:sname, background:sbg, icon:sicon, tids:tids.substring(0, tids.length-1)};
     lstorage.setItem("set" + i, JSON.stringify(setarr)); //store set info
-    setresarr = {listnum:j, passnum:"", failnum:""};
+    setresarr = {totalnum:j, passnum:"", failnum:""};
     lstorage.setItem("set" + i + "res", JSON.stringify(setresarr)); //store set result
   });
   lstorage.setItem("setnum", i);  //store set total num
@@ -95,14 +95,15 @@ function listSet() {
     var sicon = "glyphicon " + setarr.icon;
     var surl = "tests_list.html?sid=" + sid;
     var setresarr = JSON.parse(lstorage.getItem(sid + "res"));
-    var listnum = parseInt(setresarr.listnum);
+    var totalnum = parseInt(setresarr.totalnum);
     var passnum = setresarr.passnum;
     var failnum = setresarr.failnum;
     var setresline = "";
     if(passnum != "" || failnum != "") {
-      var setresline = '<span class=\"label label-success\">Pass:&nbsp;' + passnum + '</span>\n'
-                      + '<span class=\"label label-danger\">Fail:&nbsp;' + failnum + '</span>\n'
-                      + '<span class=\"label label-default\">Notrun:&nbsp;' + (listnum-parseInt(passnum)-parseInt(failnum)) + '</span>\n';
+      var setresline = '<span>Total:' + totalnum +'</span>\n'
+                      + '<span class=\"label label-success\">' + passnum + '</span>\n'
+                      + '<span class=\"label label-danger\">' + failnum + '</span>\n'
+                      + '<span class=\"label label-default\">' + (totalnum-parseInt(passnum)-parseInt(failnum)) + '</span>\n';
     }
     var setline = '<div class=\"col-md-4\">\n<div class=\"media\">\n'
                   + '<a class=\"pull-left\" href=\"' + surl + '\">\n'

@@ -40,10 +40,12 @@ function listTest() {
   var tbg = "color-swatches " + setarr.background;
   var ticon = "glyphicon " + setarr.icon;
   var passnum = failnum = 0;
+  var totalnum = 0;
   for(var i = 0; i < tids.length; i++) {
     var tid = tids[i];
     var casearr = JSON.parse(lstorage.getItem(tid));
     var tnum = parseInt(casearr.num);
+    totalnum += tnum;
     var tpass = parseInt(casearr.pass);
     var tfail = parseInt(casearr.fail);
     var tresult = casearr.result;
@@ -52,9 +54,10 @@ function listTest() {
     passnum = tresult == "pass" ? passnum + 1 : passnum;
     failnum = tresult == "fail" ? failnum + 1 : failnum;
     if(tresult != "" && tnum > 1) {
-      var resultline = '<span class=\"label label-success\">Pass:&nbsp;' + tpass + '</span>\n'
-                      + '<span class=\"label label-danger\">Fail:&nbsp;' + tfail + '</span>\n'
-                      + '<span class=\"label label-default\">Notrun:&nbsp;' + (tnum-tpass-tfail) + '</span>\n';
+      var resultline = '<span>Total:' + tnum + '</span>\n'
+                      + '<span class=\"label label-success\">' + tpass + '</span>\n'
+                      + '<span class=\"label label-danger\">' + tfail + '</span>\n'
+                      + '<span class=\"label label-default\">' + (tnum-tpass-tfail) + '</span>\n';
     }
     var testline = '<div class=\"col-md-3\">\n<div class=\"media ' + tresult + '\">\n'
                   + '<a class=\"pull-left\" href=\"' + turl + '\">\n'
@@ -67,7 +70,7 @@ function listTest() {
   }
   if(passnum == 0 && failnum == 0)
     passnum == failnum == "";
-  var setresarr = {listnum:tids.length, passnum:passnum, failnum:failnum};
+  var setresarr = {totalnum:totalnum, passnum:passnum, failnum:failnum};
   lstorage.setItem(sid + "res", JSON.stringify(setresarr));
 }
 
