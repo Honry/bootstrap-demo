@@ -262,14 +262,3 @@ margin-top: 1px;
   padding-left: 5px;
   padding-right: 5px;
 }
-.normalSpan{
-  display: none;
-  color: red;
-}
-.columnSpan{
-  visibility: hidden;
-  color: red;
-}
-.text-blue{
-  color: blue;
-}
