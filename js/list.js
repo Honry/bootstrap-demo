@@ -51,19 +51,21 @@ function listTest() {
     var tresult = casearr.result;
     var turl = "samples/" + tid + "/index.html?tid=" + tid;
     var resultline = "";
+    var midstyle = 'style=\"height:26px; line-height:26px\"';
     passnum = tresult == "pass" ? passnum + 1 : passnum;
     failnum = tresult == "fail" ? failnum + 1 : failnum;
     if(tresult != "" && tnum > 1) {
-      var resultline = '<span>Total:' + tnum + '</span>\n'
-                      + '<span class=\"label label-success\">' + tpass + '</span>\n'
-                      + '<span class=\"label label-danger\">' + tfail + '</span>\n'
-                      + '<span class=\"label label-default\">' + (tnum-tpass-tfail) + '</span>\n';
+      resultline = '<span class=\"label label-primary\" style=\"margin-right:5px\">Total:' + tnum + '</span>\n'
+                    + '<span class=\"label label-success\">' + tpass + '</span>\n'
+                    + '<span class=\"label label-danger\">' + tfail + '</span>\n'
+                    + '<span class=\"label label-default\">' + (tnum-tpass-tfail) + '</span>\n';
+      midstyle = "";
     }
     var testline = '<div class=\"col-md-3\">\n<div class=\"media ' + tresult + '\">\n'
                   + '<a class=\"pull-left\" href=\"' + turl + '\">\n'
                   + '<div class=\"' + tbg + '\"><span class=\"' + ticon + '\"></span></div>\n</a>\n'
                   + '<div class=\"media-body\">\n'
-                  + '<a href=\"' + turl +'\"><h5 class=\"media-heading\">' + tid + '</h5></a>\n'
+                  + '<a href=\"' + turl +'\"><h5 class=\"media-heading\"'+ midstyle +'>' + tid + '</h5></a>\n'
                   + resultline
                   + '</div>\n</div>\n</div>\n';
     $('#mytest').append(testline);

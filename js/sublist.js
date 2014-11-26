@@ -56,11 +56,12 @@ function listSubcase() {
       var suburl = $(this).attr("entry") + "?subkey=" + subkey;
       passnum = subresult == "pass" ? passnum + 1 : passnum;
       failnum = subresult == "fail" ? failnum + 1 : failnum;
+      var midstyle = 'style=\"height:26px; line-height:26px\"';
       var testline = '<div class=\"col-md-3\">\n<div class=\"media ' + subresult + '\">\n'
                     + '<a class=\"pull-left\" href=\"' + suburl + '\">\n'
                     + '<div class=\"' + tbg + '\"><span class=\"' + ticon + '\"></span></div>\n</a>\n'
                     + '<div class=\"media-body\">\n'
-                    + '<a href=\"' + suburl +'\"><h5 class=\"media-heading\">' + subid + '</h5></a>\n'
+                    + '<a href=\"' + suburl +'\"><h5 class=\"media-heading\"' + midstyle + '>' + subid + '</h5></a>\n'
                     + '</div>\n</div>\n</div>\n';
       $('#mytest').append(testline);
       if(lstorage.getItem(subkey) == null) {

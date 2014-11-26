@@ -100,10 +100,10 @@ function listSet() {
     var failnum = setresarr.failnum;
     var setresline = "";
     if(passnum != "" || failnum != "") {
-      var setresline = '<span>Total:' + totalnum +'</span>\n'
-                      + '<span class=\"label label-success\">' + passnum + '</span>\n'
-                      + '<span class=\"label label-danger\">' + failnum + '</span>\n'
-                      + '<span class=\"label label-default\">' + (totalnum-parseInt(passnum)-parseInt(failnum)) + '</span>\n';
+      setresline = '<span class=\"label label-primary\" style=\"margin-right:5px\">Total:' + totalnum +'</span>\n'
+                    + '<span class=\"label label-success\">' + passnum + '</span>\n'
+                    + '<span class=\"label label-danger\">' + failnum + '</span>\n'
+                    + '<span class=\"label label-default\">' + (totalnum-parseInt(passnum)-parseInt(failnum)) + '</span>\n';
     }
     var setline = '<div class=\"col-md-4\">\n<div class=\"media\">\n'
                   + '<a class=\"pull-left\" href=\"' + surl + '\">\n'
