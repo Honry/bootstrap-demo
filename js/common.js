@@ -33,7 +33,8 @@ function showMessage(type, msg) {
   $("#modal-body").html(msg);
   switch(type) {
     case "help":
-      $("#modal-dialog").css("bottom", "30px");
+      $("#modal-footer").html("<p style='text-align: left'>Icons from <a href='http://glyphicon.com/'>Glyphicons Free</a><p>");
+      $("#modal-dialog").css("bottom", "50px");
       $("#modal-dialog").css("width", "70%");
       $("#modal-dialog").css("left", "15%");
       $("#myModalLabel").addClass("glyphicon-info-sign");

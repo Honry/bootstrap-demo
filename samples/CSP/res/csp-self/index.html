@@ -39,6 +39,7 @@ Authors:
     <link rel="stylesheet" type="text/css" href="../../../../css/main.css" />
     <script src="../../../../js/jquery-1.11.1.min.js"></script>
     <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/common.js"></script>
     <script src="../../../../js/tests.js"></script>
     <meta http-equiv="Content-Security-Policy" content="default-src 'unsafe-inline';connect-src 'self';font-src 'self';frame-src 'self';img-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-inline'">
     <meta http-equiv="x-Content-Security-Policy" content="default-src 'unsafe-inline';connect-src 'self';font-src 'self';frame-src 'self';img-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-inline'">
@@ -58,33 +59,36 @@ Authors:
     </style>
   </head>
   <body>
-    <div data-role="page" id="main">
-    <input type="hidden" id="wgt_name" value="csp-self"/>
-    <p>Test 1:  passes if two pass displayed below</p>
-    <script>
-         var xhr = new XMLHttpRequest();
-         try {
-             xhr.open("GET", "support/csp.js");
-             document.write("Pass<br>");
-         } catch(e) {
-             document.write("Fail--should not reach here, throw exception<br>");
-         }
-         try {
-             xhr.open("GET", "http://https://www.tizen.org");
-             document.write("Fail--should be throw exception<br>");
-         } catch(e) {
-             document.write("Pass<br>");
-         }
-    </script>
-    <hr />
-    <div data-role="footer" data-position="fixed" data-tap-toggle="false"></div>
-        <div data-role="popup" id="popup_info" data-theme="a">
-          <font class="fontSize">
-            <p>Test Purpose: Verifies the csp-self of CSP worked well.</p>
-            <p>Expected Result: </p>
-            <p>Test passes if two pass displayed.</p>
-          </font>
-        </div>
+    <div id="header">
+      <h3 id="main_page_title"></h3>
+    </div>
+    <div class="content">
+      <input type="hidden" id="wgt_name" value="csp-self"/>
+      <p>Test 1:  passes if two pass displayed below</p>
+      <script>
+           var xhr = new XMLHttpRequest();
+           try {
+               xhr.open("GET", "support/csp.js");
+               document.write("Pass<br>");
+           } catch(e) {
+               document.write("Fail--should not reach here, throw exception<br>");
+           }
+           try {
+               xhr.open("GET", "http://https://www.tizen.org");
+               document.write("Fail--should be throw exception<br>");
+           } catch(e) {
+               document.write("Pass<br>");
+           }
+      </script>
+      <hr />
+    </div>
+    <div class="footer">
+      <div id="footer"></div>
+    </div>
+    <div class="modal fade" id="popup_info">
+      <p>Test Purpose: Verifies the csp-self of CSP worked well.</p>
+      <p>Expected Result: </p>
+      <p>Test passes if two pass displayed.</p>
     </div>
   </body>
 </html>
