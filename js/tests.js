@@ -41,7 +41,7 @@ if(location.search.indexOf('subkey=') > 0) {
   tid = keyarr.tid;
   title = tid + " - " + subid;
 } else {
-  sid = keyarr.sid;
+  sid = 1;
   tid = id;
   title = tid;
 }

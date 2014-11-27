@@ -256,3 +256,8 @@ div.ui-slider {
     padding: .6em 5px;
     overflow: visible;
 }
+.textArr{
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: normal;
+}

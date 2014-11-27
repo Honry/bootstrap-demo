@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<!--
+/*
 Copyright (c) 2013 Intel Corporation.
 
 Redistribution and use in source and binary forms, with or without modification,
@@ -26,40 +25,14 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Authors:
-        Xu, Jianfeng <jianfengx.xu@intel.com>
+        Lin, Wanming <wanmingx.lin@intel.com>
 
--->
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width" />
-    <link href="../../css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="../../css/main.css" rel="stylesheet" type="text/css">
-    <script src="../../js/jquery-1.11.1.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
-    <script src="../../js/sublist.js"></script>
-    <script src="../../js/common.js"></script>
-  </head>
-  <body>
-    <!-- Heading -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-        <h3 class="text-center" id="casename">
-          <a class="btn btn-default pull-right" href="#" role="button" id="app-version"></a>
-        </h3>
-      </div>
-    </div>
-    <!-- Begin page content -->
-    <div class="container-fluid">
-      <div class="row" id="mytest">
-      </div>
-    </div>
-    <!-- footer -->
-    <div class="footer">
-      <div id="footer"></div>
-    </div>
-    <div class="modal fade" id="popup_info">
-      <p>Verifies the functionality of CSP worked well.</p>
-    </div>
-  </body>
-</html>
+*/
+window.addEventListener(
+    "devicemotion",
+    function(evt) {
+        var coordinate = evt.acceleration;
+        jQuery("#x").text("X: " + Math.round(coordinate.x-0));
+        jQuery("#y").text("Y: " + Math.round(coordinate.y-0));
+        jQuery("#z").text("Z: " + Math.round(coordinate.z-0));
+    }, false);
