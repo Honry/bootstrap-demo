@@ -262,3 +262,19 @@ margin-top: 1px;
   padding-left: 5px;
   padding-right: 5px;
 }
+.list-divider{
+  padding: .5em 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #456f9a;
+  background: #5e87b0;
+  color: #fff;
+  background-image: linear-gradient( #6facd5, #497bae);
+}
+.list-li{
+  padding: .7em 15px;
+  border-bottom-width: 1px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-weight: bold;
+}

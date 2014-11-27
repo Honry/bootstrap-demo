@@ -39,8 +39,8 @@ Authors:
     <link rel="stylesheet" type="text/css" href="../../../../css/main.css" />
     <script src="../../../../js/jquery-1.11.1.min.js"></script>
     <script src="../../../../js/bootstrap.min.js"></script>
-    <script src="../../../../js/tests.js"></script>
     <script src="../../../../js/common.js"></script>
+    <script src="../../../../js/tests.js"></script>
     <script src="support/csp.js"></script>
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline';connect-src *;font-src *;frame-src *;img-src *;media-src *;object-src *;style-src * 'unsafe-inline'"/>
     <meta http-equiv="x-Content-Security-Policy" content="default-src * 'unsafe-inline';connect-src *;font-src *;frame-src *;img-src *;media-src *;object-src *;style-src * 'unsafe-inline'"/>
@@ -58,31 +58,32 @@ Authors:
     </style>
   </head>
   <body>
-    <div id="main">
     <div id="header">
       <h3 id="main_page_title"></h3>
     </div>
-    <p>Test 1: passes if a "Pass" displayed below</p>
-    <script>
-         document.write("<br>");
-         //connect
-         var xhr = new XMLHttpRequest();
-         try {
-             xhr.open("GET", "support/csp.js");
-             xhr.open("GET", "http://www.w3.org");
-             document.write("Pass<br>");
-         } catch(e) {
-             document.write("Fail--should not reach here, catch error<br>");
-         }
-    </script>
-    <hr />
-    <div class="modal fade" id="myModal"></div>
+    <div class="content">
+      <p>Test 1: passes if a "Pass" displayed below</p>
+      <script>
+           document.write("<br>");
+           //connect
+           var xhr = new XMLHttpRequest();
+           try {
+               xhr.open("GET", "support/csp.js");
+               xhr.open("GET", "http://www.w3.org");
+               document.write("Pass<br>");
+           } catch(e) {
+               document.write("Fail--should not reach here, catch error<br>");
+           }
+      </script>
+      <hr />
+    </div>
     <div class="footer">
-      <div id="footer">
-        <p>Test Purpose: Verifies the csp-asterisk of CSP worked well.</p>
-        <p>Expected Result: </p>
-        <p>Test passes if a "Pass" displayed.</p>
-      </div>
+      <div id="footer"></div>
+    </div>
+    <div class="modal fade" id="popup_info">
+      <p>Test Purpose: Verifies the csp-asterisk of CSP worked well.</p>
+      <p>Expected Result: </p>
+      <p>Test passes if a "Pass" displayed.</p>
     </div>
   </body>
 </html>
