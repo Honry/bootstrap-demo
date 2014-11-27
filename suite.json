@@ -35,6 +35,9 @@
                         "res": "res",
                         "steps": "steps",
                         "samples": "samples",
+                        "samples-wrt": "samples",
+                        "samples-cordova/cordova-incl.js": "cordova-incl.js",
+                        "samples-cordova": "samples",
                         "tests.xml": "tests.xml",
                         "tests_list.html": "tests_list.html",
                         "appVersion": "appVersion"
