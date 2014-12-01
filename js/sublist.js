@@ -37,6 +37,10 @@ function back() {
   window.location.href = "../../tests_list.html?sid=" + sid;
 }
 
+function help() {
+  showMessage("help", popup_info);
+}
+
 function listSubcase() {
   var setarr = JSON.parse(lstorage.getItem(sid));
   var tbg = "color-swatches " + setarr.background;
@@ -83,6 +87,9 @@ function listSubcase() {
 }
 
 $(document).ready(function(){
+  popup_info = $("#popup_info").html();
+  $("#subhelp").click(help);
+  $("#subback").click(back);
   document.getElementById('app-version').innerHTML = lstorage.getItem("app-version");
   $('#casename').append(tid);
   document.title = tid;
