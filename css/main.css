@@ -278,3 +278,15 @@ margin-top: 1px;
   font-size: 14px;
   font-weight: bold;
 }
+.hideButton {
+  display: none;
+}
+.ui-li-desc {
+  font-size: 12px;
+  font-weight: normal;
+  display: block;
+  margin: -.5em 0 .6em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
