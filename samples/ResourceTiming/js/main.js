@@ -50,7 +50,7 @@ function resourceTiming() {
 }
 
 function loadingImg() {
-  gInfo = '<button href="javascript:resourceFetchSuccess()" id="requestShow" type="button" class="tagBtn btn btn-default btn-lg btn-block">Load image</button>';
+  gInfo = '<button onclick="javascript:resourceFetchSuccess()" id="requestShow" type="button" class="tagBtn btn btn-default btn-lg btn-block">Load image</button>';
   $("#info-list1").html(gInfo);
 }
 
