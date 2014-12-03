@@ -1,7 +1,7 @@
 {
     "version": "0.2",
     "name": "bootstrap-demo",
-    "permissions": ["tabs", "unlimited_storage", "notifications", "http://*/*", "https://*/*", "Contacts"],
+    "permissions": [],
     "description": "bootstrap-demo",
     "file_name": "manifest.json",
     "app": {
