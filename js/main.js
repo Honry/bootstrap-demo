@@ -41,15 +41,20 @@ var sstorage = window.sessionStorage;
 
 function testStorage() {
   lstorage.clear();
-  var tests = getApps("tests.xml", "xml");
+  var tests = getApps("tests.android.xml", "xml");
   var i = 0;
-  var sname, sbg, sicon, tid, tnum, tids, tpass, tfail, setarr, setresarr, casearr;
+  var sname, sbg, sicon, tid, tnum, tids, tpass, tfail, setarr, setresarr, casearr, testsuite;
   /** get&set app-version **/
   var version = "";
   $(getApps("appVersion", "json")).each(function() {
     version = $(this).attr("app-version");
   });
   lstorage.setItem("app-version", version);
+  /** get&set test suite **/
+  $(tests).find("suite").each(function() {
+    testsuite = $(this).attr("name");
+  })
+  lstorage.setItem("test-suite", testsuite);
   /** set loop **/
   $(tests).find("set").each(function() {
     sname = $(this).attr("name");
@@ -139,7 +144,7 @@ $(document).ready(function(){
   popup_info = $("#popup_info").html();
   $("#help").click(help);
   $("#exit").click(exit);
-  if(lstorage.getItem("setnum") == null) {
+  if(lstorage.getItem("test-suite") == null || lstorage.getItem("test-suite") == "DemoExpress") {
     testStorage();
   } else {
     if(sstorage.getItem("lsflag") == null) {
