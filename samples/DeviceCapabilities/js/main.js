@@ -29,11 +29,11 @@ Authors:
 
 */
 
-var system = navigator.system || xwalk.experimental.system;
+var system = navigator.system;
 
 var gInfo;
 
-var init = function () {
+function init() {
     try {
         system.getCPUInfo().then(onCpuSuccess, onError);
         system.getMemoryInfo().then(onMemorySuccess, onError);
@@ -41,7 +41,7 @@ var init = function () {
         system.getDisplayInfo().then(onDisplaySuccess, onError);
         system.getAVCodecs().then(onAVCodecsSuccess, onError);
     } catch (e) {
-        alert("Exception: " + e.message);
+        $("#popup_info").modal(showMessage("error", "Exception: " + e.message));
     }
 };
 
@@ -54,7 +54,7 @@ function makeDividerListItem(value) {
 }
 
 function onError(e) {
-    alert("Error: " + e.message);
+    $("#popup_info").modal(showMessage("error", "Error: " + e.message));
 }
 
 function onCpuSuccess(cpuInfo) {
@@ -109,4 +109,6 @@ function onAVCodecsSuccess(avcodecsInfo) {
     $("#codec").html(gInfo);
 }
 
-$(document).bind("pageinit", init);
+window.onload = function(){
+  init();
+};

@@ -111,9 +111,8 @@ $(document).ready(function(){
   $("#main_page_title").text(title);
   $("#header").addClass("navbar navbar-default navbar-fixed-top text-center");
   $("#footer").html("<div id='btn-group' class='btn-group'></div>");
-  $("#btn-group").html("<button type='button' id='help' class='btn btn-default' data-toggle='modal' data-target='#popup_info'><span class='glyphicon glyphicon-info-sign'></span>&nbsp;Help</button><button type='button' class='btn btn-default' onclick='javascript: back();'><span class='glyphicon glyphicon-circle-arrow-left'></span>&nbsp;Back</button>");
+  $("#btn-group").html("<button type='button' id='help' onclick='help()' class='btn btn-default' data-toggle='modal' data-target='#popup_info'><span class='glyphicon glyphicon-info-sign'></span>&nbsp;Help</button><button type='button' class='btn btn-default' onclick='javascript: back();'><span class='glyphicon glyphicon-circle-arrow-left'></span>&nbsp;Back</button>");
   $("#footer").addClass("container text-center");
   initStep(tid);
-  $("#help").click(help);
   popup_info = $("#popup_info").html();
 });
