@@ -1,8 +1,8 @@
 {
     "version": "0.2",
-    "name": "bootstrap-demo",
+    "name": "DemoExpress",
     "permissions": [],
-    "description": "bootstrap-demo",
+    "description": "DemoExpress",
     "file_name": "manifest.json",
     "app": {
         "launch": {
