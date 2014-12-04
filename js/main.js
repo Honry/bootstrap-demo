@@ -41,7 +41,7 @@ var sstorage = window.sessionStorage;
 
 function testStorage() {
   lstorage.clear();
-  var tests = getApps("tests.android.xml", "xml");
+  var tests = getApps("tests.xml", "xml");
   var i = 0;
   var sname, sbg, sicon, tid, tnum, tids, tpass, tfail, setarr, setresarr, casearr, testsuite;
   /** get&set app-version **/
