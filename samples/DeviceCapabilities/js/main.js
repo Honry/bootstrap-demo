@@ -29,7 +29,7 @@ Authors:
 
 */
 
-var system = navigator.system;
+var system = navigator.system || xwalk.experimental.system;
 
 var gInfo;
 
