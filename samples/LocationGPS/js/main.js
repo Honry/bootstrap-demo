@@ -42,7 +42,6 @@ function initialize() {
     try {
         navigator.geolocation.watchPosition(successCallback, errorCallback, { maximumAge: 60000});
     } catch (err) {
-        $.mobile.hidePageLoadingMsg();
         jQuery("#errormessage").html("<p>Error Message: <font color='red'>" + err.message + "</font></p>");
     }
 }

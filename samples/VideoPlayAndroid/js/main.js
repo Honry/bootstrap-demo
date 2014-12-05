@@ -37,6 +37,7 @@ $(document).ready(function(){
       tooltip: 'always'
     });
     document.getElementById("MediaPlayback").volume = 0.6;
+    pause();
 });
 
 function play() {
