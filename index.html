@@ -38,8 +38,24 @@ Authors:
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/exportTableToCSV.js"></script>
     <script src="js/common.js"></script>
     <script src="js/main.js"></script>
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        table,td,th {
+          border : 1px solid gray;
+          text-align: center;
+        }
+
+        td,th {
+          width: 25%;
+        }
+    </style>
   </head>
   <body>
     <!-- Heading -->
@@ -60,6 +76,9 @@ Authors:
         <div class="btn-group">
           <button type="button" id="help" class="btn btn-default" data-toggle='modal' data-target='#popup_info'>
             <span class="glyphicon glyphicon-info-sign"></span>&nbsp;Help
+          </button>
+          <button type="button" id="showTestResult" class="btn btn-default" data-toggle='modal' data-target='#popup_info'>
+            <span class="glyphicon glyphicon-leaf"></span>&nbsp;Report
           </button>
           <button type="button" id="exit" class="btn btn-default" data-toggle='modal' data-target='#popup_info'>
             <span class="glyphicon glyphicon-log-out"></span>&nbsp;Exit
