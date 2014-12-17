@@ -46,11 +46,11 @@ function init() {
 };
 
 function makelineListItem(value) {
-    return '<div class="list-li">' + value + '</div>';
+    return '<div class="panel-body">' + value + '</div>';
 }
 
 function makeDividerListItem(value) {
-    return '<div class="list-divider">' + value + '</div>';
+    return '<div class="panel-heading">' + value + '</div>';
 }
 
 function onError(e) {

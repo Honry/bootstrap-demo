@@ -32,6 +32,7 @@ var lstorage = window.localStorage;
 var tid = location.search.split('=')[1];
 var casearr = JSON.parse(lstorage.getItem(tid));
 var sid = casearr.sid;
+var purpose = casearr.purpose;
 
 function back() {
   window.location.href = "../../tests_list.html?sid=" + sid;
@@ -82,7 +83,7 @@ function listSubcase() {
     tresult = "pass";
   else
     tresult = "fail";
-  var newcasearr = {num:tnum, pass:passnum, fail:failnum, result:tresult, sid:sid};
+  var newcasearr = {purpose:purpose, num:tnum, pass:passnum, fail:failnum, result:tresult, sid:sid};
   lstorage.setItem(tid, JSON.stringify(newcasearr)); //update case result
 }
 

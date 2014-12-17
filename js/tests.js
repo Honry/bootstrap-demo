@@ -34,6 +34,7 @@ var addr = window.location.href;
 var id = location.search.split('=')[1];
 var isSubcase = false;
 var keyarr = JSON.parse(lstorage.getItem(id));
+var purpose = keyarr.purpose;
 
 if(location.search.indexOf('subkey=') > 0) {
   isSubcase = true;
@@ -69,7 +70,7 @@ function reportResult(res) {
   if (isSubcase) {
     storearr = {id: subid, result: res, tid: tid};
   } else {
-    storearr = {num: 1, pass: "0", fail: "0", result: res, sid: sid};
+    storearr = {purpose: purpose, num: 1, pass: "0", fail: "0", result: res, sid: sid};
   }
   lstorage.setItem(id, JSON.stringify(storearr));
   back();

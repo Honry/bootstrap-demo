@@ -116,12 +116,12 @@ function makeFileList(files) {
     gFiles = files;
 
     if (files.length == 0) {
-        str = '<div class="list-li">N/A</div>';
+        str = '<div class="panel-body">N/A</div>';
     }
 
     for (var i = 0; i < files.length; i++) {
         if (files[i].isDirectory == false) {
-            str += '<div class="list-li">'
+            str += '<div class="panel-body">'
                 + files[i].name
                 + '<button type="button" onclick="deleteFileFromFolder('+ i +')">Delete</button></div>';
         }

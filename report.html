@@ -26,7 +26,7 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Authors:
-        Lin, Wanming <wanmingx.lin@intel.com>
+        Liu, Yun <yunx.liu@intel.com>
 
 -->
 <html>
@@ -39,8 +39,7 @@ Authors:
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/exportTableToCSV.js"></script>
-    <script src="js/common.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/report.js"></script>
     <style>
         table {
           border-collapse: collapse;
@@ -61,34 +60,33 @@ Authors:
     <!-- Heading -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
-        <h3 class="text-center" style="font-weight:bold">DemoExpress<a class="btn btn-default pull-right" href="#" role="button" id="app-version"></a></h3>
+        <h3 class="text-center" style="font-weight:bold">Test Report<a class="btn btn-default pull-right" href="#" role="button" id="app-version"></a></h3>
       </div>
     </div>
     <!-- Begin page content -->
-    <div class="container-fluid">
-      <div class="row" id="myset">
-        <!-- Begin set content -->
-      </div>
+    <div class="content">
+      <label class="text-center" style="width: 100%">Test Summary by Suite</label>
+      <table id="testSummary" style="width: 50%; margin-top: 10px;">
+        <tr style="background: rgba(128, 128, 128, 0.64);"><td>Suite</td><td>Passed</td><td>Failed</td><td>Not Run</td><td>Total</td></tr>
+        <tr><td id="txtSuite"></td><td id="txtPassed"></td><td id="txtFailed"></td><td id="txtNotRun"></td><td id="txtTotal"></td></tr>
+      </table>
+      <label class="text-center" style="width: 100%; margin-top: 30px;">Detailed Test Results</label>
+      <table id="resultDetail" style="margin-top: 10px;"></table>
     </div>
     <!-- Footer -->
     <div class="footer">
       <div class="container text-center">
         <div class="btn-group">
-          <button type="button" id="help" class="btn btn-default" data-toggle='modal' data-target='#popup_info'>
-            <span class="glyphicon glyphicon-info-sign"></span>&nbsp;Help
+          <button type="button" id="downloadResult" class="btn btn-default">
+            <span class="glyphicon glyphicon-download-alt"></span>&nbsp;Download
           </button>
-          <button type="button" id="showTestResult" class="btn btn-default" onclick="document.location.href='report.html'">
-            <span class="glyphicon glyphicon-leaf"></span>&nbsp;Report
-          </button>
-          <button type="button" id="exit" class="btn btn-default" data-toggle='modal' data-target='#popup_info'>
-            <span class="glyphicon glyphicon-log-out"></span>&nbsp;Exit
+          <button type="button" class="btn btn-default" onclick="document.location.href='index.html'">
+            <span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;Back
           </button>
         </div>
       </div>
     </div>
     <div id="popup_info" class="modal fade">
-        <p>&nbsp;&nbsp;This sample demonstrates the basic usage of standard APIs that are supported by Crosswalk.&nbsp;&nbsp;</p>
-        <p>&nbsp;&nbsp;Please refer to the API spec details to <a href="https://crosswalk-project.org/#documentation/apis/web_apis">https://crosswalk-project.org/#documentation/apis/web_apis</a>&nbsp;&nbsp;</p>
     </div>
   </body>
 </html>

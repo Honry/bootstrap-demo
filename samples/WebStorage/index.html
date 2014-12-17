@@ -49,8 +49,8 @@ Authors:
         </div>
         <div class="content">
           <h4>&nbsp;&nbsp;This sample demonstrates the WebStorage with add and remove operation.</h4>
-          <div>
-            <div class="list-divider">Storage</div>
+          <div class="panel panel-primary" style="margin-bottom: 5px;">
+            <div class="panel-heading">Storage</div>
                <label for="session">sessionStorage:</label>
                <input type="text" name="session" value="" id="session" class="form-control" />
                <label for="local">localStorage:</label>
@@ -58,11 +58,9 @@ Authors:
                <button type="button" id="add" class="btn btn-default btn-lg btn-block" style="margin-top: 5px;">Add storage</button>
                <button type="button" id="clear" class="btn btn-default btn-lg btn-block">Remove storage</button>
           </div>
-          <div style="margin-top: 5px;">
-            <div class="list-divider">Message</div>
-            <div>
-               <div class="list-li"><span id="status"></span></div>
-            </div>
+          <div class="panel panel-primary">
+            <div class="panel-heading">Message</div>
+            <div class="panel-body"><span id="status"></span></div>
             <table id="tableList"></table>
           </div>
         <div class="footer">
