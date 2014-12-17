@@ -62,11 +62,11 @@ function onError(e) {
 }
 
 function make1lineListItem(value) {
-    return '<div class="list-li">' + value + '</div>';
+    return '<div class="panel-body">' + value + '</div>';
 }
 
 function makeDividerListItem(value) {
-    return '<div class="list-divider">' + value + '</div>';
+    return '<div class="panel-heading">' + value + '</div>';
 }
 
 function onWifiNetworkSuccess(wifi) {

@@ -73,12 +73,13 @@ function testStorage() {
     tids = "";
     $(this).find("testcase").each(function() {
       tid = $(this).attr("id");
+      purpose = $(this).attr("purpose");
       tids += tid + ",";
       tnum = 1;
       if($(this).attr("subcase")) {
         tnum = parseInt($(this).attr("subcase"));
       }
-      casearr = {num:tnum, pass:"0", fail:"0", result:"", sid:"set" + i}; //result: "", "pass", "fail"
+      casearr = {purpose:purpose, num:tnum, pass:"0", fail:"0", result:"", sid:"set" + i}; //result: "", "pass", "fail"
       j += tnum;
       lstorage.setItem(tid, JSON.stringify(casearr)); //store case info
     });
@@ -213,7 +214,7 @@ function uselstorage() {
 $(document).ready(function(){
   popup_info = $("#popup_info").html();
   $("#help").click(help);
-  $("#showTestResult").click(showTestResult);
+  //$("#showTestResult").click(showTestResult);
   $("#exit").click(exit);
   if(lstorage.getItem("test-suite") == null || lstorage.getItem("test-suite") == "DemoExpress") {
     testStorage();

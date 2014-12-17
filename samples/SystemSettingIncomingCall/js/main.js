@@ -89,7 +89,7 @@ function fileAudio() {
               {
                   var Url = files[i].toURI();
                   Url = Url.replace("file:///", "/");
-                  str += '<div class="list-li" data-url="' + Url + '">' + files[i].name + '</div>';
+                  str += '<div class="panel-body" data-url="' + Url + '">' + files[i].name + '</div>';
                   length++;
                   if(length >= 9)
                       break;
